@@ -1,0 +1,63 @@
+{
+  "ticker": "VHM",
+  "as_of": "2026-10-09",
+  "generated_at": "2026-10-09T11:30:30",
+  "latest_period": "2025",
+  "growth": {
+    "revenue_growth_yoy": -0.397503,
+    "net_income_growth_yoy": -0.130358,
+    "revenue_growth_qoq": -0.840598
+  },
+  "margins": {
+    "gross_margin": 0.491987,
+    "operating_margin": 0.608615,
+    "net_margin": 0.467389
+  },
+  "profitability": {
+    "roe": 0.1901,
+    "roa": 0.062,
+    "roic": null
+  },
+  "leverage": {
+    "debt_to_equity": 0.5871,
+    "debt_to_assets": 0.1857,
+    "current_ratio": 1.45,
+    "quick_ratio": 1.07
+  },
+  "cash_flow": {
+    "operating_cash_flow": 31003512000000.0,
+    "operating_cash_flow_unit": "VND",
+    "free_cash_flow": 12704462000000.0,
+    "free_cash_flow_unit": "VND",
+    "fcf_per_share": 2884487.54,
+    "fcf_per_share_unit": "VND/cổ phiếu"
+  },
+  "ttm": {
+    "ttm_revenue": 187849052000000.0,
+    "ttm_revenue_unit": "VND",
+    "ttm_net_income": 60352265000000.0,
+    "ttm_net_income_unit": "VND",
+    "ttm_eps": null,
+    "ttm_eps_unit": "VND/cổ phiếu"
+  },
+  "per_share": {
+    "eps": 6621000.0,
+    "eps_unit": "VND/cổ phiếu",
+    "bvps": 60674.87,
+    "bvps_unit": "VND/cổ phiếu",
+    "dividend_per_share": null,
+    "dividend_per_share_unit": "VND/cổ phiếu"
+  },
+  "sources": [
+    {
+      "name": "vnstock (KBS)",
+      "url": "https://vnstocks.com",
+      "date": "2026-10-09"
+    },
+    {
+      "name": "vnfinancialdata (Hugging Face)",
+      "url": "https://huggingface.co/datasets/datasets-for-good/vnfinancialdata",
+      "date": "2026-10-09"
+    }
+  ]
+}
