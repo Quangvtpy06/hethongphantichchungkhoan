@@ -1,0 +1,64 @@
+{
+  "ticker": "MSB",
+  "as_of": "2026-10-08",
+  "as_of_date": "2026-10-08",
+  "requested_as_of": "2026-10-09",
+  "unit": {
+    "price": "VND/share",
+    "volume": "shares",
+    "return": "decimal"
+  },
+  "price": {
+    "close": 14750,
+    "date": "2026-10-08",
+    "adjusted": true,
+    "basis": "vnstock historical adjusted close"
+  },
+  "current_price": 14750,
+  "daily_return_pct": 0.68,
+  "trend": "up",
+  "rsi14": 71.99,
+  "ma20": 13727.5,
+  "ma50": 13450.8,
+  "ma200": 11681.05,
+  "return_1m": 0.143411,
+  "return_3m": 0.104869,
+  "return_1y": 0.328829,
+  "avg_volume_20d": 9898045,
+  "support": 12650,
+  "resistance": 14800,
+  "indicators": {
+    "ma20": 13727.5,
+    "ma50": 13450.8,
+    "ma200": 11681.05,
+    "rsi_14": 71.99,
+    "volume": 8414300,
+    "volume_ma20": 9898045
+  },
+  "returns": {
+    "stock_daily": 0.006826,
+    "stock_cumulative": 1.487352,
+    "benchmark_daily": -0.008224,
+    "benchmark_cumulative": 0.552
+  },
+  "benchmark": {
+    "ticker": "VNINDEX",
+    "date": "2026-10-08",
+    "close": 1738.97
+  },
+  "benchmark_return_pct": -0.82,
+  "chart_path": "outputs/charts/MSB_price.png",
+  "sources": [
+    {
+      "name": "vnstock",
+      "url": "https://vnstocks.com/docs/vnstock",
+      "date": "2026-10-08"
+    },
+    {
+      "name": "Ho Chi Minh Stock Exchange - VN-Index",
+      "url": "https://www.hsx.vn/Modules/Listed/Web/StockIndexView",
+      "date": "2026-10-08"
+    }
+  ],
+  "warnings": []
+}
