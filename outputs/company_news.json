@@ -1,0 +1,580 @@
+{
+  "ticker": "FPT",
+  "as_of": "2026-10-09",
+  "company": {
+    "founded_date": "2002-02-28",
+    "listing_date": "2006-12-13",
+    "number_of_employees": 54110,
+    "ceo_name": "Mr. Trương Gia Bình",
+    "ceo_position": "Chủ tịch HĐQT",
+    "company_type": "Công ty cổ phần",
+    "address": "Số 10 - Phố Phạm Văn Bạch - P. Cầu Giấy - Tp. Hà Nội",
+    "phone": "(84.24) 7300 7300",
+    "email": "Ir@fpt.com",
+    "website": "https://fpt.com",
+    "auditor": "Deloitte",
+    "business_code": "0101248141",
+    "tax_id": "0101248141",
+    "history": "- Ngày 13/09/1988: Tiền thân là Công ty Công nghệ thực phẩm thành lập. - Ngày 27/10/1990: Đổi tên thành Công ty Phát triển đầu tư công nghệ FPT. - Năm 1999: Tiến ra thị trường nước ngoài với hướng đi chiến lược là xuất khẩu phần mềm. - Năm 2001: Ra mắt báo điện tử VnExpress, tờ báo điện tử đầu tiên của Việt Nam. - Tháng 03/2002: Công ty tiến hành cổ phần hóa; Sản xuất sản phẩm công nghệ thương hiệu FPT. - Năm 2006: Niêm yết trên thị trường chứng khoán; Thành lập trường ĐH FPT. - Ngày 25/09/2008: Đổi tên thành CTCP FPT. - Năm 2012: Đầu tư mở rộng chuỗi bán lẻ sản phẩm công nghệ FPT (FPT Shop) và Đầu tư vào thương mại điện tử. - Năm 2014: Tiến hành thương vụ M&A đầu tiên trong lĩnh vực CNTT của Việt Nam tại thị trường nước ngoài. Trong nước, công ty bắt đầu cung cấp dịch vụ truyền hình trả tiền. - Ngày 14/04/2017: Tăng vốn điều lệ lên 4,617,230,540,000 đồng. - Ngày 22/06/2017: Tăng vốn điều lệ lên 5,309,611,050,000 đồng. - Ngày 23/04/2018: Tăng vốn điều lệ lên 5,336,156,610,000 đồng. - Ngày 19/06/2018: Tăng vốn điều lệ lên 6,136,367,720,000 đồng. - Ngày 16/04/2019: Tăng vốn điều lệ lên 6,167,039,720,000 đồng. - Ngày 11/06/2019: Tăng vốn điều lệ lên 6,783,586,880,000 đồng. - Ngày 13/04/2020: Tăng vốn điều lệ lên 6,817,504,780.000 đồng. - Ngày 04/06/2020: Tăng vốn điều lệ lên 7,839,874,860,000 đồng. - Ngày 06/05/2021: Tăng vốn điều lệ lên 7,891,972,540,000 đồng. - Ngày 06/07/2021: Tăng vốn điều lệ lên 9,075,516,490,000 đồng. - Tháng 05/2022: Tăng vốn điều lệ lên 9,141,959,000,000 đồng. - Tháng 07/2022: Tăng vốn điều lệ lên 10,970,266,000,000 đồng. - Tháng 05/2023: Tăng vốn điều lệ lên 11,043,316,000,000 đồng. - Tháng 06/2024: Tăng vốn điều lệ lên 14,604,480,660,000 đồng. - Tháng 10/2024: Tăng vốn điều lệ lên 14,710,691,830,000 đồng. - Tháng 05/2025: Tăng vốn điều lệ lên 14,813,301,220,000 đồng. - Tháng 08/2025: Tăng vốn điều lệ lên 17,035,071,210,000 đồng. - Tháng 07/2026: Tăng vốn điều lệ lên 17,413,264,220,000 đồng.",
+    "as_of_date": "2025-12-31",
+    "name": "CTCP FPT",
+    "english_name": "FPT Corporation",
+    "exchange": "HOSE",
+    "industry": {
+      "level_1": "Công nghệ Thông tin",
+      "level_2": "Công nghệ Thông tin",
+      "level_3": "Phần mềm & Dịch vụ Máy tính",
+      "level_4": "Phần mềm"
+    },
+    "charter_capital": {
+      "value": 17413264220000,
+      "unit": "VND",
+      "as_of": "2026-09-07"
+    },
+    "business_model": "- Công nghệ:+ Nhóm dịch vụ: Tư vấn Chuyển đổi số, Chuyển đổi xanh và Chuyển đổi trí tuệ nhân tạo; Thiết kế, triển khai, tích hợp, vận hành, bảo trì, kiểm thử... các hệ thống CNTT; Dịch vụ an toàn, an ninh mạng; Cung cấp các giải pháp dựa trên các nền tảng công nghệ: NVIDIA, Landing AI, SAP, Oracle, Microsoft, ESRI…+ Nhóm sản phẩm, giải pháp: Cung cấp các nền tảng công nghệ tiên tiến như: nền tảng trí tuệ nhân tạo FPT.AI, nền tảng điện toán đám mây FPT Cloud, nền tảng quản trị doanh nghiệp Base.vn; Phát triển chip nguồn và chip IoT; Sản phẩm, giải pháp chuyển đổi số tích hợp công nghệ AI, AI tạo sinh (Generative AI), tự động hóa (RPA), kết nối vạn vật (IoT)… chuyên sâu cho các lĩnh vực như: Chính phủ, Viễn thông, Ngân hàng - Tài chính, Y tế, Giao thông vận tải, Tài chính công, Năng lượng, Doanh nghiệp, Ô tô…; Sản phẩm, giải pháp tiên tiến giải quyết các bài toán nghiệp vụ chuyên sâu của doanh nghiệp như: quản lý chuỗi cung ứng, quản lý tài chính, quản lý nguồn nhân lực, quản lý quan hệ khách hàng & trải nghiệm người dùng, quản lý phát triển bền vững, chuyển đổi quy trình kinh doanh… - Viễn thông: Dịch vụ Viễn thông; Dịch vụ truyền hình FPT Play; Dịch vụ họp trực tuyến; Hệ sinh thái truyền thông số; Hệ thống các sản phẩm FPT Smart Home. - Giáo dục: Bao gồm các khối đào tạo Giáo dục Phổ thông; Giáo dục Nghề nghiệp và Giáo dục Đại học.",
+    "revenue_structure": [
+      {
+        "segment": "Công nghệ:+ Nhóm dịch vụ: Tư vấn Chuyển đổi số, Chuyển đổi xanh và Chuyển đổi trí tuệ nhân tạo; Thiết kế, triển khai, tích hợp, vận hành, bảo trì, kiểm thử... các hệ thống CNTT; Dịch vụ an toàn, an ninh mạng; Cung cấp các giải pháp dựa trên các nền tảng công nghệ: NVIDIA, Landing AI, SAP, Oracle, Microsoft, ESRI…+ Nhóm sản phẩm, giải pháp: Cung cấp các nền tảng công nghệ tiên tiến như: nền tảng trí tuệ nhân tạo FPT.AI, nền tảng điện toán đám mây FPT Cloud, nền tảng quản trị doanh nghiệp Base.vn; Phát triển chip nguồn và chip IoT; Sản phẩm, giải pháp chuyển đổi số tích hợp công nghệ AI, AI tạo sinh (Generative AI), tự động hóa (RPA), kết nối vạn vật (IoT)… chuyên sâu cho các lĩnh vực như: Chính phủ, Viễn thông, Ngân hàng",
+        "revenue_share": null,
+        "unit": "decimal",
+        "as_of": null
+      },
+      {
+        "segment": "Tài chính, Y tế, Giao thông vận tải, Tài chính công, Năng lượng, Doanh nghiệp, Ô tô…; Sản phẩm, giải pháp tiên tiến giải quyết các bài toán nghiệp vụ chuyên sâu của doanh nghiệp như: quản lý chuỗi cung ứng, quản lý tài chính, quản lý nguồn nhân lực, quản lý quan hệ khách hàng & trải nghiệm người dùng, quản lý phát triển bền vững, chuyển đổi quy trình kinh doanh…",
+        "revenue_share": null,
+        "unit": "decimal",
+        "as_of": null
+      },
+      {
+        "segment": "Viễn thông: Dịch vụ Viễn thông; Dịch vụ truyền hình FPT Play; Dịch vụ họp trực tuyến; Hệ sinh thái truyền thông số; Hệ thống các sản phẩm FPT Smart Home",
+        "revenue_share": null,
+        "unit": "decimal",
+        "as_of": null
+      },
+      {
+        "segment": "Giáo dục: Bao gồm các khối đào tạo Giáo dục Phổ thông; Giáo dục Nghề nghiệp và Giáo dục Đại học",
+        "revenue_share": null,
+        "unit": "decimal",
+        "as_of": null
+      }
+    ],
+    "revenue_structure_note": "Các mảng được suy ra từ mô tả hoạt động của vnstock; tỷ trọng doanh thu để null khi không có dữ liệu phân khúc đã kiểm chứng."
+  },
+  "governance": {
+    "major_shareholders": [
+      {
+        "name": "Trương Gia Bình",
+        "update_date": "2025-12-31",
+        "shares_owned": 117347966,
+        "ownership_percentage": 0.0689
+      },
+      {
+        "name": "Tổng Công ty Đầu tư và Kinh doanh vốn Nhà nước",
+        "update_date": "2025-12-31",
+        "shares_owned": 96585637,
+        "ownership_percentage": 0.0567
+      }
+    ],
+    "officers": [
+      {
+        "from_date": "1988-01-01",
+        "position": "CTHĐQT",
+        "name": "Ông Trương Gia Bình",
+        "position_en": "CTHĐQT (Chairman of BOD)",
+        "owner_code": "CTHĐQT"
+      },
+      {
+        "from_date": "1988-01-01",
+        "position": "Phó CTHĐQT",
+        "name": "Ông Bùi Quang Ngọc",
+        "position_en": "Phó CTHĐQT (Vice Chairman of BOD)",
+        "owner_code": "Phó CTHĐQT"
+      },
+      {
+        "from_date": "1994-01-01",
+        "position": "TVHĐQT",
+        "name": "Ông Đỗ Cao Bảo",
+        "position_en": "TVHĐQT (Member of BOD)",
+        "owner_code": "TVHĐQT"
+      },
+      {
+        "from_date": null,
+        "position": "TVHĐQT",
+        "name": "Ông Hampapur Rangadore Binod",
+        "position_en": "TVHĐQT (Member of BOD)",
+        "owner_code": "TVHĐQT"
+      },
+      {
+        "from_date": null,
+        "position": "TVHĐQT",
+        "name": "Ông Jean-Charles Belliol",
+        "position_en": "TVHĐQT (Member of BOD)",
+        "owner_code": "TVHĐQT"
+      },
+      {
+        "from_date": null,
+        "position": "TVHĐQT",
+        "name": "Ông Toshikazu Nambu",
+        "position_en": "TVHĐQT (Member of BOD)",
+        "owner_code": "TVHĐQT"
+      },
+      {
+        "from_date": "2022-01-01",
+        "position": "TVHĐQT",
+        "name": "Bà Trần Thị Hồng Lĩnh",
+        "position_en": "TVHĐQT (Member of BOD)",
+        "owner_code": "TVHĐQT"
+      },
+      {
+        "from_date": "2019-01-01",
+        "position": "TGĐ",
+        "name": "Ông Nguyễn Văn Khoa",
+        "position_en": "TGĐ (CEO)",
+        "owner_code": "TGĐ"
+      },
+      {
+        "from_date": "2000-01-01",
+        "position": "Phó TGĐ",
+        "name": "Ông Nguyễn Thế Phương",
+        "position_en": "Phó TGĐ (Deputy CEO)",
+        "owner_code": "Phó TGĐ"
+      },
+      {
+        "from_date": "2024-01-01",
+        "position": "Phó TGĐ",
+        "name": "Ông Phạm Minh Tuấn",
+        "position_en": "Phó TGĐ (Deputy CEO)",
+        "owner_code": "Phó TGĐ"
+      },
+      {
+        "from_date": "2010-01-01",
+        "position": "KTT",
+        "name": "Ông Hoàng Hữu Chiến",
+        "position_en": "KTT (Chief Accountant)",
+        "owner_code": "KTT"
+      },
+      {
+        "from_date": "1992-01-01",
+        "position": "Trưởng BKS",
+        "name": "Ông Nguyễn Việt Thắng",
+        "position_en": "Trưởng BKS (Chief of Supervisory Board)",
+        "owner_code": "Trưởng BKS"
+      },
+      {
+        "from_date": "2022-01-01",
+        "position": "Thành viên BKS",
+        "name": "Bà Dương Thùy Dương",
+        "position_en": "Thành viên BKS (Member of Supervisory Board)",
+        "owner_code": "Thành viên BKS"
+      },
+      {
+        "from_date": "2017-01-01",
+        "position": "Thành viên BKS",
+        "name": "Ông Nguyễn Khải Hoàn",
+        "position_en": "Thành viên BKS (Member of Supervisory Board)",
+        "owner_code": "Thành viên BKS"
+      }
+    ],
+    "ownership": [
+      {
+        "owner_type": "TCT Đầu tư và Kinh doanh vốn Nhà nước (SCIC)",
+        "ownership_percentage": 0.0567,
+        "shares_owned": 96585637,
+        "update_date": "2025-12-31"
+      },
+      {
+        "owner_type": "CĐ tổ chức",
+        "ownership_percentage": 0.4401,
+        "shares_owned": 749771552,
+        "update_date": "2025-12-31"
+      },
+      {
+        "owner_type": "CĐ nội bộ",
+        "ownership_percentage": 0.1605,
+        "shares_owned": 273445441,
+        "update_date": "2025-12-31"
+      },
+      {
+        "owner_type": "Cá nhân ngoài CT",
+        "ownership_percentage": 0.3426,
+        "shares_owned": 583704491,
+        "update_date": "2025-12-31"
+      }
+    ],
+    "subsidiaries": [
+      {
+        "update_date": "2025-12-31",
+        "name": "Công ty TNHH Phần mềm FPT",
+        "charter_capital": 7750000000000,
+        "ownership_percent": 1.0,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2025-12-31",
+        "name": "Công ty TNHH Giáo dục FPT",
+        "charter_capital": 4500000000000,
+        "ownership_percent": 1.0,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2025-12-31",
+        "name": "Công ty TNHH Hệ thống Thông tin FPT",
+        "charter_capital": 1500000000000,
+        "ownership_percent": 1.0,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2025-12-31",
+        "name": "Công ty TNHH FPT Smart Cloud",
+        "charter_capital": 1000000000000,
+        "ownership_percent": 1.0,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2025-12-31",
+        "name": "CTCP Đầu tư FPT",
+        "charter_capital": 1000000000000,
+        "ownership_percent": 1.0,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2025-12-31",
+        "name": "Công ty TNHH FPT Digital",
+        "charter_capital": 60000000000,
+        "ownership_percent": 1.0,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2025-12-31",
+        "name": "CTCP Dịch vụ Trực tuyến FPT",
+        "charter_capital": 184712750000,
+        "ownership_percent": 0.4952,
+        "currency": "VND",
+        "type": "công ty liên kết"
+      },
+      {
+        "update_date": "2025-12-31",
+        "name": "CTCP Synnex FPT",
+        "charter_capital": 1188400000000,
+        "ownership_percent": 0.48,
+        "currency": "VND",
+        "type": "công ty liên kết"
+      },
+      {
+        "update_date": "2025-12-31",
+        "name": "CTCP Bán lẻ Kỹ thuật số FPT",
+        "charter_capital": 1703017850000,
+        "ownership_percent": 0.4654,
+        "currency": "VND",
+        "type": "công ty liên kết"
+      },
+      {
+        "update_date": "2025-12-31",
+        "name": "CTCP Viễn thông FPT",
+        "charter_capital": 7387634630000,
+        "ownership_percent": 0.4566,
+        "currency": "VND",
+        "type": "công ty liên kết"
+      }
+    ],
+    "capital_history": [
+      {
+        "date": "2026-09-07",
+        "charter_capital": 17413264220000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 17035071210000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 14813301220000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 14710691830000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 14604480660000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 11043316220000,
+        "currency": "VND"
+      },
+      {
+        "date": "2022-11-07",
+        "charter_capital": 10970265720000,
+        "currency": "VND"
+      },
+      {
+        "date": "2022-11-05",
+        "charter_capital": 9141959140000,
+        "currency": "VND"
+      },
+      {
+        "date": "2021-06-07",
+        "charter_capital": 9075516490000,
+        "currency": "VND"
+      },
+      {
+        "date": "2021-07-05",
+        "charter_capital": 7891972540000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 6817504780000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 6783586880000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 5309611050000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 4594266840000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 3995184690000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 3975316400000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 3439766000000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 2752017550000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 2738488330000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 2160826760000,
+        "currency": "VND"
+      }
+    ]
+  },
+  "recent_events": null,
+  "news": [
+    {
+      "date": "2026-10-08",
+      "title": "FPT và thành viên Toyota thúc đẩy hợp tác lĩnh vực bán dẫn tại ASEAN và Ấn Độ",
+      "summary": "FPT vừa tổ chức buổi làm việc với các đại diện cấp cao của Toyota Tsusho Nexty Electronics, qua đó tiếp tục thúc đẩy các trao đổi về khả năng hợp tác kinh doanh trong lĩnh vực bán dẫn giữa hai bên.",
+      "sentiment": "neutral",
+      "source": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-va-thanh-vien-toyota-thuc-day-hop-tac-linh-vuc-ban-dan-tai-asean-va-an-do"
+    },
+    {
+      "date": "2026-10-08",
+      "title": "FPT Shop tặng vé concert 'Tinh hà say hi' khi mua điện thoại Honor",
+      "summary": "FPT Shop giảm giá trực tiếp đến 9 triệu đồng hoặc áp dụng gói ưu đãi kèm vé concert \"Tinh hà say hi\" cho người mua điện thoại Honor, áp dụng hết 14/10.",
+      "sentiment": "neutral",
+      "source": "VnExpress",
+      "url": "https://vnexpress.net/fpt-shop-tang-ve-concert-tinh-ha-say-hi-khi-mua-dien-thoai-honor-5129945.html"
+    },
+    {
+      "date": "2026-10-07",
+      "title": "FPT chia sẻ kinh nghiệm xây dựng hệ thống đấu thầu quốc gia với Campuchia",
+      "summary": "Đại diện FPT vừa đón tiếp phái đoàn Bộ Kinh tế và Tài chính Campuchia (MEF) sang thăm và trao đổi kinh nghiệm về việc xây dựng, vận hành Hệ thống mạng đấu thầu quốc gia (e-GP/VNEPS) của Việt Nam. Chuyến thăm mở ra triển vọng hợp tác sâu rộng giữa hai bên trong lĩnh vực chuyển đổi số mua sắm công.",
+      "sentiment": "neutral",
+      "source": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-chia-se-kinh-nghiem-xay-dung-he-thong-dau-thau-quoc-gia-voi-campuchia"
+    },
+    {
+      "date": "2026-10-07",
+      "title": "FPT giành ba giải thưởng ASOCIO về AI, khẳng định năng lực công nghệ Việt trên bản đồ khu vực",
+      "summary": "Tối 6/10 tại Jakarta (Indonesia), Tập đoàn FPT được Hiệp hội Công nghiệp Điện toán châu Á – châu Đại Dương (ASOCIO) ghi nhận năng lực ứng dụng trí tuệ nhân tạo (AI) ở ba hạng mục giải thưởng: AI trong Nguồn nhân lực & Kỹ năng tương lai, AI trong Dịch vụ tài chính và AI trong Y tế.",
+      "sentiment": "neutral",
+      "source": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-gianh-ba-giai-thuong-asocio-ve-ai-khang-dinh-nang-luc-cong-nghe-viet-tren-ban-do-khu-vuc"
+    },
+    {
+      "date": "2026-10-06",
+      "title": "CEO FPT lần thứ 3 liên tiếp đắc cử Phó Chủ tịch ASOCIO",
+      "summary": "Tổng giám đốc FPT kiêm Chủ tịch VINASA vừa trúng cử và tiếp tục giữ vị trí lãnh đạo cao cấp tại tổ chức công nghệ thông tin lâu đời và uy tín bậc nhất khu vực.",
+      "sentiment": "neutral",
+      "source": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/ceo-fpt-lan-thu-3-lien-tiep-dac-cu-pho-chu-tich-asocio"
+    },
+    {
+      "date": "2026-10-05",
+      "title": "FPT được vinh danh “Thương hiệu Việt vươn tầm Thế giới” – Better Choice Awards 2026",
+      "summary": "Hà Nội – Tại Ngày hội Đổi mới sáng tạo quốc gia 2026, Tập đoàn FPT và các đơn vị thành viên được vinh danh tại 7 hạng mục của Better Choice Awards 2026, nổi bật với “Thương hiệu Việt vươn tầm Thế giới”, hai hạng mục AI dành cho FPT.AI và Top 5 Giải pháp đổi mới sáng tạo phục vụ doanh nghiệp dành cho FPT Cloud. FPT đồng thời giới thiệu hệ sinh thái “Làm chủ công nghệ chiến lược” với các sản phẩm, giải pháp về AI,…",
+      "sentiment": "neutral",
+      "source": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-duoc-vinh-danh-thuong-hieu-viet-vuon-tam-the-gioi-better-choice-awards-2026"
+    },
+    {
+      "date": "2026-10-04",
+      "title": "FPT được vinh danh tại Thương hiệu Mạnh Việt Nam 2026",
+      "summary": "Hà Nội, ngày 03 tháng 10 năm 2026 – Tập đoàn FPT được vinh danh trong Top 10 Thương hiệu doanh nghiệp dẫn đầu khu vực kinh tế tư nhân tại Lễ Công bố và Vinh danh Thương hiệu Mạnh Việt Nam 2026, ghi nhận năng lực kinh doanh, đổi mới sáng tạo, trách nhiệm xã hội và năng lực hội nhập quốc tế của Tập đoàn.",
+      "sentiment": "neutral",
+      "source": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-duoc-vinh-danh-tai-thuong-hieu-manh-viet-nam-2026"
+    },
+    {
+      "date": "2026-10-03",
+      "title": "Bộ trưởng Khoa học và Công nghệ: ‘Uy tín giúp FPT thành công tại Nhật Bản’",
+      "summary": "FPT đã từng bước mở rộng hợp tác, tham gia đồng kiến tạo và hướng tới làm chủ công nghệ, tạo dựng vị thế vững chắc tại một trong những thị trường khó tính nhất thế giới, Bộ trưởng Vũ Hải Quân đánh giá.",
+      "sentiment": "positive",
+      "source": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/bo-truong-khoa-hoc-va-cong-nghe-uy-tin-giup-fpt-thanh-cong-tai-nhat-ban"
+    },
+    {
+      "date": "2026-09-10",
+      "title": "Theo dấu dòng tiền cá mập 10/09: Khối ngoại và tự doanh gom mạnh VIC và FPT, nhưng trái chiều tại VHM",
+      "summary": "Trong ngày thị trường chứng khoán hồi phục điểm số, cả khối ngoại và tự doanh đồng loạt quay đầu mua ròng sau chuỗi ngày liên tục bán ròng. VIC và FPT là tâm điểm mua ròng, trong khi VHM chứng kiến các hành động trái chiều.",
+      "sentiment": "neutral",
+      "source": "Vietstock via vnstock/KBS",
+      "url": "https://vietstock.vn/2026/09/theo-dau-dong-tien-ca-map-1009-khoi-ngoai-va-tu-doanh-gom-manh-vic-va-fpt-nhung-trai-chieu-tai-vhm-830-1491131.htm"
+    },
+    {
+      "date": "2025-11-18",
+      "title": "FPT tạm ứng cổ tức 10% bằng tiền mặt",
+      "summary": "(ĐTCK) Ngày 2/12 tới đây, CTCP FPT (FPT – sàn HOSE) sẽ chốt danh sách cổ đông tạm ứng cổ tức đợt 1/2025 bằng tiền với tỷ lệ 10%, tương ứng cổ đông sở hữu 1 cổ phiếu sẽ được nhận 1.000 đồng.",
+      "sentiment": "positive",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/fpt-tam-ung-co-tuc-10-bang-tien-mat-post380696.html"
+    },
+    {
+      "date": "2025-10-21",
+      "title": "FPT đạt lợi nhuận trước thuế 9.540 tỷ đồng trong 9 tháng, tăng trưởng 17,6%",
+      "summary": "(ĐTCK) 9 tháng năm 2025, CTCP FPT (FPT - sàn HOSE) ghi nhận doanh thu 49.887 tỷ đồng, lợi nhuận trước thuế 9.540 tỷ đồng, lần lượt tăng 10,3% và 17,6% so với cùng kỳ năm ngoái.",
+      "sentiment": "positive",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/fpt-dat-loi-nhuan-truoc-thue-9540-ty-dong-trong-9-thang-tang-truong-176-post378986.html"
+    }
+  ],
+  "news_summary": {
+    "article_count": 11,
+    "positive_count": 3,
+    "neutral_count": 8,
+    "negative_count": 0,
+    "method": "rule_based_keyword_classification"
+  },
+  "growth_drivers": [
+    {
+      "summary": "FPT đã từng bước mở rộng hợp tác, tham gia đồng kiến tạo và hướng tới làm chủ công nghệ, tạo dựng vị thế vững chắc tại một trong những thị trường khó tính nhất thế giới, Bộ trưởng Vũ Hải Quân đánh giá.",
+      "date": "2026-10-03",
+      "source": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/bo-truong-khoa-hoc-va-cong-nghe-uy-tin-giup-fpt-thanh-cong-tai-nhat-ban"
+    },
+    {
+      "summary": "(ĐTCK) Ngày 2/12 tới đây, CTCP FPT (FPT – sàn HOSE) sẽ chốt danh sách cổ đông tạm ứng cổ tức đợt 1/2025 bằng tiền với tỷ lệ 10%, tương ứng cổ đông sở hữu 1 cổ phiếu sẽ được nhận 1.000 đồng.",
+      "date": "2025-11-18",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/fpt-tam-ung-co-tuc-10-bang-tien-mat-post380696.html"
+    },
+    {
+      "summary": "(ĐTCK) 9 tháng năm 2025, CTCP FPT (FPT - sàn HOSE) ghi nhận doanh thu 49.887 tỷ đồng, lợi nhuận trước thuế 9.540 tỷ đồng, lần lượt tăng 10,3% và 17,6% so với cùng kỳ năm ngoái.",
+      "date": "2025-10-21",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/fpt-dat-loi-nhuan-truoc-thue-9540-ty-dong-trong-9-thang-tang-truong-176-post378986.html"
+    }
+  ],
+  "risks": null,
+  "sources": [
+    {
+      "name": "vnstock/KBS",
+      "url": "https://vnstocks.com/docs/vnstock/tra-cuu-thong-tin-tham-chieu-reference",
+      "date": "2026-10-09"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com",
+      "date": "2026-10-09"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-va-thanh-vien-toyota-thuc-day-hop-tac-linh-vuc-ban-dan-tai-asean-va-an-do",
+      "date": "2026-10-08"
+    },
+    {
+      "name": "VnExpress",
+      "url": "https://vnexpress.net/fpt-shop-tang-ve-concert-tinh-ha-say-hi-khi-mua-dien-thoai-honor-5129945.html",
+      "date": "2026-10-08"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-chia-se-kinh-nghiem-xay-dung-he-thong-dau-thau-quoc-gia-voi-campuchia",
+      "date": "2026-10-07"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-gianh-ba-giai-thuong-asocio-ve-ai-khang-dinh-nang-luc-cong-nghe-viet-tren-ban-do-khu-vuc",
+      "date": "2026-10-07"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/ceo-fpt-lan-thu-3-lien-tiep-dac-cu-pho-chu-tich-asocio",
+      "date": "2026-10-06"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-duoc-vinh-danh-thuong-hieu-viet-vuon-tam-the-gioi-better-choice-awards-2026",
+      "date": "2026-10-05"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-duoc-vinh-danh-tai-thuong-hieu-manh-viet-nam-2026",
+      "date": "2026-10-04"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/bo-truong-khoa-hoc-va-cong-nghe-uy-tin-giup-fpt-thanh-cong-tai-nhat-ban",
+      "date": "2026-10-03"
+    },
+    {
+      "name": "Vietstock via vnstock/KBS",
+      "url": "https://vietstock.vn/2026/09/theo-dau-dong-tien-ca-map-1009-khoi-ngoai-va-tu-doanh-gom-manh-vic-va-fpt-nhung-trai-chieu-tai-vhm-830-1491131.htm",
+      "date": "2026-09-10"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/fpt-tam-ung-co-tuc-10-bang-tien-mat-post380696.html",
+      "date": "2025-11-18"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/fpt-dat-loi-nhuan-truoc-thue-9540-ty-dong-trong-9-thang-tang-truong-176-post378986.html",
+      "date": "2025-10-21"
+    }
+  ],
+  "methodology_reference": {
+    "name": "vn-annual-report-miner (MIT) - multi-source news methodology",
+    "url": "https://github.com/Tumiqa/vn-annual-report-miner"
+  },
+  "warnings": []
+}
