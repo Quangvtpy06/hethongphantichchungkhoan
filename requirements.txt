@@ -1,3 +1,13 @@
-reportlab>=4.2,<5
-Pillow>=10
+dash>=3.0.0
+dash-bootstrap-components>=1.6.0
+plotly>=5.20.0
+reportlab>=4.2,<6
+Pillow>=10.0.0
 pypdf>=5,<7
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.8.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+vnstock>=4.0.6
+

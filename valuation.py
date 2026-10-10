@@ -3,6 +3,7 @@ import os
 import re
 import sys
 import unicodedata
+from report_support import risk_flags
 from datetime import date
 
 OUTPUT_FILE = "assessment.json"
@@ -13,13 +14,32 @@ CASES = ("bear", "base", "bull")
 CASE_KEY = {"bear": "p25", "base": "median", "bull": "p75"}
 SCEN_W = {"bear": 0.25, "base": 0.50, "bull": 0.25}
 
+# Trọng số kịch bản theo hồ sơ rủi ro nhà đầu tư
+RISK_SCEN_W = {
+    "conservative": {"bear": 0.40, "base": 0.45, "bull": 0.15},
+    "balanced": {"bear": 0.25, "base": 0.50, "bull": 0.25},
+    "aggressive": {"bear": 0.15, "base": 0.45, "bull": 0.40},
+}
+
 # Ngưỡng "Có cơ hội" theo hồ sơ rủi ro; "Cần theo dõi" = 0% <= upside < ngưỡng; dưới 0% = "Chưa hấp dẫn"
 RISK_THRESHOLD = {"conservative": 0.25, "balanced": 0.20, "aggressive": 0.15}
 
 # (trọng số P/B, trọng số P/E)
 SECTOR_WEIGHTS = {
-    "Ngân hàng": (0.70, 0.30), "Chứng khoán": (0.60, 0.40), "Bảo hiểm": (0.50, 0.50),
-    "Bất động sản": (0.60, 0.40), "Ngành chu kỳ": (0.50, 0.50), "Khác": (0.30, 0.70),
+    "Ngân hàng": (0.70, 0.30),
+    "Chứng khoán": (0.60, 0.40),
+    "Bảo hiểm": (0.50, 0.50),
+    "Bất động sản": (0.60, 0.40),
+    "Dầu khí": (0.50, 0.50),
+    "Thép": (0.50, 0.50),
+    "Ngành chu kỳ": (0.50, 0.50),
+    "Công nghệ": (0.20, 0.80),
+    "Bán lẻ": (0.30, 0.70),
+    "Thực phẩm & Đồ uống": (0.30, 0.70),
+    "Hóa chất": (0.50, 0.50),
+    "Y tế & Dược phẩm": (0.30, 0.70),
+    "Sản xuất & Tiêu dùng": (0.35, 0.65),
+    "Khác": (0.30, 0.70),
 }
 CYCLICAL_KW = ("thép", "hóa chất", "khai khoáng", "khai thác", "dầu khí", "phân bón", "xi măng",
                "kim loại", "cao su", "vận tải biển", "hàng hải", "nhựa")
@@ -71,12 +91,18 @@ def _worse_conf(c, cap):
 def sector_group(sector):
     """Chuẩn hóa trường sector về nhóm định giá."""
     s = unicodedata.normalize("NFC", str(sector or "")).lower()
-    for name in ("Ngân hàng", "Chứng khoán", "Bảo hiểm", "Bất động sản"):
+    for name in ("Ngân hàng", "Chứng khoán", "Bảo hiểm", "Bất động sản", "Dầu khí", "Công nghệ", "Bán lẻ"):
         if name.lower() in s:
             return name
+    if any(k in s for k in ("thực phẩm", "đồ uống", "nông nghiệp", "thủy sản", "chăn nuôi")):
+        return "Thực phẩm & Đồ uống"
+    if any(k in s for k in ("y tế", "dược", "bệnh viện", "thiết bị y tế")):
+        return "Y tế & Dược phẩm"
     if any(k in s for k in CYCLICAL_KW):
         return "Ngành chu kỳ"
-    return "Khác"
+    if any(k in s for k in ("tiêu dùng", "gia dụng", "dệt may", "sản xuất", "chế biến", "xây dựng", "vật liệu")):
+        return "Sản xuất & Tiêu dùng"
+    return sector if (sector and sector != "Khác") else "Khác"
 
 
 def _mult_ok(m):
@@ -128,7 +154,7 @@ def _multiple_components(group, ref, eps_basis, bvps, growth, eps_label):
     pe_m, pb_m = _mult_ok(_g(ref, "pe")), _mult_ok(_g(ref, "pb"))
     pe_ok = pe_m is not None and eps_basis is not None and eps_basis > 0
     pb_ok = pb_m is not None and bvps is not None and bvps > 0
-    w_pb, w_pe = SECTOR_WEIGHTS[group]
+    w_pb, w_pe = SECTOR_WEIGHTS.get(group, (0.30, 0.70))
     if pe_ok and pb_ok:
         wts = {"PB": w_pb, "PE": w_pe}
     elif pb_ok:
@@ -168,10 +194,14 @@ def valuate(fund, tech, growth, cagr, group, gaps, assumptions):
     sector_ref = None if is_hist else ref
     hist_ref = fund.get("valuation_history") or (ref if is_hist else None)
 
-    eps_ttm = _num(_g(fund, "per_share", "eps_ttm"))
+    eps_ttm = _num(_g(fund, "per_share", "eps_ttm")) or _num(_g(fund, "ttm", "ttm_eps")) or _num(_g(fund, "per_share", "eps"))
     eps5 = _num(_g(fund, "per_share", "eps_avg_5y"))
     bvps = _num(_g(fund, "per_share", "bvps"))
-    dps = _num(_g(fund, "per_share", "dps"))
+    dps = _num(_g(fund, "per_share", "dps")) or _num(_g(fund, "per_share", "dividend_per_share"))
+    if eps_ttm is not None and eps_ttm > 50000:
+        eps_ttm = eps_ttm / 1000.0
+    if eps5 is not None and eps5 > 50000:
+        eps5 = eps5 / 1000.0
     if group == "Ngành chu kỳ":
         if eps5 is not None:
             eps_basis, eps_label = eps5, "EPS bình quân 5 năm (VND/cp)"
@@ -257,7 +287,8 @@ def assess(fund, tech, news, risk="balanced", as_of=None, risk_profile=None):
         return _no_data(ticker, as_of, risk, fund, price, price_date, gaps, srcs)
 
     scen = {k: sum(c["weight"] * comp_value(c, k) for c in comps) for k in CASES}
-    target = sum(SCEN_W[k] * scen[k] for k in CASES)
+    scen_w = RISK_SCEN_W.get(risk, RISK_SCEN_W["balanced"])
+    target = sum(scen_w[k] * scen[k] for k in CASES)
     upside = (target - price) / price
     bear_up = (scen["bear"] - price) / price
 
@@ -269,16 +300,16 @@ def assess(fund, tech, news, risk="balanced", as_of=None, risk_profile=None):
     # --- quy tắc hạ bậc: chỉ hạ, tối đa 1 bậc
     triggers = []
     if bear_up < BEAR_DROP_LIMIT:
-        triggers.append(f"Kịch bản bear thấp hơn giá hiện tại {_pct(-bear_up)} (> 25%).")
+        triggers.append(f"Kịch bản thị trường xấu (Bear) có thể khiến thị giá giảm {_pct(-bear_up)} (vượt ngưỡng chịu đựng 25%)")
     if _g(tech, "trend") == "down":
-        triggers.append("Xu hướng kỹ thuật đang giảm (trend = down).")
+        triggers.append("Xu hướng kỹ thuật đang suy yếu, giá nằm dưới các đường trung bình MA20/MA50")
     rsi = _num(_g(tech, "rsi14"))
     if rsi is not None and rsi > RSI_HOT:
-        triggers.append(f"RSI14 = {rsi:.0f} > 75: vùng quá mua, rủi ro điều chỉnh ngắn hạn.")
-    flags = news.get("risk_flags") or [] if not news.get("error") else []
+        triggers.append(f"Chỉ số RSI 14 đạt {rsi:.0f} > 75 (vùng quá mua), cảnh báo áp lực chốt lời ngắn hạn")
+    flags = risk_flags(fund, tech, news, as_of)
     high = [f for f in flags if f.get("severity") == "high"]
     for f in high:
-        triggers.append(f"Rủi ro mức cao: {f.get('text')} ({f.get('source')}, {f.get('date')})")
+        triggers.append(f"Cảnh báo rủi ro cao: {f.get('text')} ({f.get('source')})")
     final_idx = min(idx + 1, 2) if triggers else idx
     # chặn MUA ảo: chỉ dựa vào Gordon thì tối đa "Cần theo dõi"
     if level == 2:
@@ -314,39 +345,73 @@ def assess(fund, tech, news, risk="balanced", as_of=None, risk_profile=None):
                            "Độ tin cậy đã hạ 1 mức.")
         conf = _drop_conf(conf)
 
+    if (fund.get("valuation_ref") or {}).get("reference_type") == "internal_assumption":
+        conf = _worse_conf(conf, "Trung bình")
+        assumptions.append("Hệ số tham chiếu là giả định nội bộ, chưa phải thống kê ngành đã xác minh.")
     # --- diễn giải
-    reasons.append(f"Giá mục tiêu {_vnd(target)} (25% bear + 50% base + 25% bull) so với giá điều chỉnh "
-                   f"{_vnd(price)}: upside {_pct(upside)}. Phương pháp: {level_label}.")
-    reasons.append(f"Hồ sơ {risk}: 'Có cơ hội' khi upside >= {_pct(hi)}; 'Cần theo dõi' khi 0% <= upside < {_pct(hi)}; "
-                   "'Chưa hấp dẫn' khi upside < 0%.")
+    # --- diễn giải chi tiết, trực quan cho nhà đầu tư
+    reasons.append(
+        f"Định giá tham khảo: Giá mục tiêu là {_vnd(target)} (tổng hợp từ 3 kịch bản: Thận trọng {scen_w['bear']:.0%}, Cơ sở {scen_w['base']:.0%} và Tích cực {scen_w['bull']:.0%}). "
+        f"So với thị giá đóng cửa hiện tại {_vnd(price)}, cổ phiếu có mức tăng trưởng kỳ vọng (Upside) là {_pct(upside)} (Phương pháp: {level_label})."
+    )
+
+    risk_vn_map = {"conservative": "Thận trọng", "balanced": "Cân bằng", "aggressive": "Chấp nhận rủi ro"}
+    risk_vn = risk_vn_map.get(risk, risk)
+    reasons.append(
+        f"🧭 Thang bậc đánh giá theo khẩu vị '{risk_vn}': Hệ thống phân định 3 bậc khuyến nghị rõ ràng: "
+        f"(1) 'Có cơ hội' (tiềm năng sinh lời hấp dẫn, upside >= +{_pct(hi)}); "
+        f"(2) 'Cần theo dõi' (định giá hợp lý, biên an toàn vừa phải, upside từ 0% đến dưới +{_pct(hi)}); "
+        f"(3) 'Chưa hấp dẫn' (thị giá cao hơn giá trị thực hoặc tiềm ẩn rủi ro giảm giá, upside < 0%)."
+    )
+
     for c in comps:
         if c["kind"] == "PE" and c["basis_value"] > 0:
-            reasons.append(f"P/E hiện tại {price / c['basis_value']:.1f}x so với trung vị tham chiếu "
-                           f"{c['multiples']['median']:.1f}x (trọng số {c['weight']:.0%}).")
+            pe_val = price / c["basis_value"]
+            pe_med = c["multiples"]["median"]
+            pe_eval = "thấp hơn (định giá rẻ hơn)" if pe_val < pe_med else "cao hơn (định giá đắt hơn)"
+            reasons.append(
+                f"P/E hiện tại đạt {pe_val:.1f} lần, {pe_eval} so với hệ số tham chiếu của mô hình là {pe_med:.1f} lần (đóng góp {c['weight']:.0%} vào kết quả)."
+            )
         if c["kind"] == "PB":
-            reasons.append(f"P/B hiện tại {price / c['basis_value']:.2f}x so với trung vị tham chiếu "
-                           f"{c['multiples']['median']:.2f}x (trọng số {c['weight']:.0%}).")
+            pb_val = price / c["basis_value"]
+            pb_med = c["multiples"]["median"]
+            pb_eval = "thấp hơn" if pb_val < pb_med else "cao hơn"
+            reasons.append(
+                f"P/B hiện tại đạt {pb_val:.2f} lần, {pb_eval} so với hệ số tham chiếu của mô hình là {pb_med:.2f} lần (đóng góp {c['weight']:.0%} vào kết quả)."
+            )
+
     roe, ni = _num(_g(fund, "profitability", "roe")), _num(_g(fund, "growth", "net_income_yoy"))
     if roe is not None:
-        reasons.append(f"ROE (TTM) {_pct(roe)}.")
+        reasons.append(f"💼 Hiệu quả sinh lời: Tỷ suất sinh lời trên vốn chủ sở hữu (ROE) đạt {_pct(roe)}, phản ánh năng lực sinh lời của doanh nghiệp.")
     if ni is not None:
-        reasons.append(f"Lợi nhuận sau thuế tăng trưởng {_pct(ni)} so với cùng kỳ.")
+        growth_word = "tăng trưởng" if ni >= 0 else "suy giảm"
+        reasons.append(f"📈 Tăng trưởng kinh doanh: Lợi nhuận sau thuế {growth_word} {_pct(abs(ni))} so với cùng kỳ năm trước.")
     if _g(tech, "trend"):
-        t = {"up": "tăng", "down": "giảm", "sideways": "đi ngang"}.get(tech["trend"], tech["trend"])
-        reasons.append(f"Xu hướng giá {t}; hỗ trợ {_g(tech, 'support')}, kháng cự {_g(tech, 'resistance')}.")
+        t_label = {"up": "tăng giá tích cực", "down": "giảm giá / điều chỉnh", "sideways": "đi ngang tích lũy"}.get(tech["trend"], tech["trend"])
+        reasons.append(f"📉 Xu hướng vận động giá: Đang trong xu hướng {t_label}; vùng hỗ trợ kỹ thuật tại {_vnd(_g(tech, 'support'))} và kháng cự tại {_vnd(_g(tech, 'resistance'))}.")
+
     if triggers:
+        trigger_reasons = "; ".join(triggers)
         if final_idx != idx:
-            reasons.append(f"Hạ 1 bậc từ '{base_rating}' xuống '{rating}' do quản trị rủi ro (tối đa 1 bậc).")
+            reasons.append(
+                f"🛡️ Quản trị rủi ro & Bảo vệ vốn: Mặc dù biên an toàn ban đầu đạt mức '{base_rating}', hệ thống chủ động điều chỉnh hạ 1 bậc xuống '{rating}'. "
+                f"Nguyên nhân: {trigger_reasons}. Khuyến nghị nhà đầu tư kiên nhẫn quan sát điểm cân bằng, không vội mua đuổi khi tín hiệu rủi ro chưa kết thúc."
+            )
         else:
-            reasons.append(f"Có cảnh báo rủi ro nhưng rating '{rating}' đã ở mức thấp nhất của thang cơ hội.")
+            reasons.append(
+                f"🛡️ Lưu ý rủi ro: Hệ thống ghi nhận cảnh báo ({trigger_reasons}), mức khuyến nghị '{rating}' đã phản ánh đầy đủ sự thận trọng này."
+            )
     if level == 2 and base_rating == "Có cơ hội":
-        reasons.append("Chặn 'Có cơ hội' vì định giá chỉ dựa trên mô hình Gordon; rating tối đa 'Cần theo dõi'.")
+        reasons.append("⚠️ Thận trọng phương pháp: Do chỉ sử dụng mô hình chiết khấu cổ tức Gordon, hệ thống giới hạn mức xếp hạng tối đa là 'Cần theo dõi'.")
     for d in (news.get("drivers") or [])[:3] if not news.get("error") else []:
-        reasons.append(f"Động lực: {d.get('text')}")
+        d_txt = (d.get("text") or d.get("summary")) if isinstance(d, dict) else str(d)
+        reasons.append(f"🚀 Động lực tăng trưởng: {d_txt}")
+
     risks += triggers
     for f in flags:
         if f.get("severity") != "high":
-            risks.append(f"[{f.get('severity')}] {f.get('text')} ({f.get('source')}, {f.get('date')})")
+            severity = {'low': 'Thấp', 'medium': 'Trung bình', 'high': 'Cao'}.get(f.get('severity'), 'Chưa phân loại')
+            risks.append(f"[{severity}] {f.get('text')} ({f.get('source')}, {f.get('date')})")
     if bear_up >= BEAR_DROP_LIMIT and bear_up < 0:
         risks.append(f"Kịch bản bear thấp hơn giá hiện tại {_pct(-bear_up)}.")
     if news.get("error") or not news:
@@ -354,11 +419,11 @@ def assess(fund, tech, news, risk="balanced", as_of=None, risk_profile=None):
 
     assumptions += [
         "Giá đóng cửa là giá điều chỉnh; EPS và ROE tính theo TTM (trừ P/E ngành chu kỳ dùng EPS bình quân 5 năm).",
-        f"Nhóm định giá: {group}; trọng số P/B/P/E = {SECTOR_WEIGHTS[group][0]:.0%}/{SECTOR_WEIGHTS[group][1]:.0%} "
+        f"Nhóm định giá: {group}; trọng số P/B/P/E = {SECTOR_WEIGHTS.get(group, (0.30, 0.70))[0]:.0%}/{SECTOR_WEIGHTS.get(group, (0.30, 0.70))[1]:.0%} "
         "(tự dồn 100% vào phương pháp còn lại nếu một chỉ số âm/lỗi).",
         f"Tăng trưởng EPS 1 năm: bear {_pct(growth['bear'])}, base {_pct(growth['base'])}, bull {_pct(growth['bull'])} "
         "(cơ sở lấy từ eps_cagr_3y, chặn trong [-10%, +15%]; bear/bull = cơ sở -/+ 10 điểm %). P/B áp dụng trên BVPS hiện tại.",
-        "Bear/Base/Bull dùng bội số P25/Median/P75; xác suất 25/50/25.",
+        f"Bear/Base/Bull dùng bội số P25/Median/P75; xác suất theo hồ sơ rủi ro ({risk}): {scen_w['bear']:.0%}/{scen_w['base']:.0%}/{scen_w['bull']:.0%}.",
     ]
 
     return {
@@ -368,7 +433,7 @@ def assess(fund, tech, news, risk="balanced", as_of=None, risk_profile=None):
         "rating": rating, "rating_before_adjustment": base_rating, "confidence": conf,
         "target_price": round(target), "upside": round(upside, 4),
         "scenarios": {k: {"price": round(scen[k]), "upside": round((scen[k] - price) / price, 4),
-                          "probability": SCEN_W[k], "eps_growth": growth[k]} for k in CASES},
+                          "probability": scen_w[k], "eps_growth": growth[k]} for k in CASES},
         "valuation_level": level_label, "methods": comps,
         "sensitivity": _sensitivity(comps, price),
         "downgrade_triggers": triggers,

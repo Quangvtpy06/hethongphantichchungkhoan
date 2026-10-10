@@ -1,38 +1,38 @@
 {
-  "ticker": "HPG",
-  "as_of": "2026-10-09",
+  "ticker": "FPT",
+  "as_of": "2026-10-10",
   "unit": "VND/cổ phiếu",
   "risk_profile": "balanced",
-  "sector": "Thép",
-  "sector_group": "Ngành chu kỳ",
+  "sector": "Công nghệ",
+  "sector_group": "Công nghệ",
   "price": {
-    "close": 28500,
+    "close": 57900,
     "date": "2026-10-09",
     "adjusted": true
   },
-  "rating": "Chưa hấp dẫn",
-  "rating_before_adjustment": "Chưa hấp dẫn",
+  "rating": "Cần theo dõi",
+  "rating_before_adjustment": "Có cơ hội",
   "confidence": "Thấp",
-  "target_price": 27148,
-  "upside": -0.0474,
+  "target_price": 124334,
+  "upside": 1.1474,
   "scenarios": {
     "bear": {
-      "price": 20408,
-      "upside": -0.2839,
+      "price": 91275,
+      "upside": 0.5764,
       "probability": 0.25,
-      "eps_growth": -0.1
+      "eps_growth": -0.0534
     },
     "base": {
-      "price": 26460,
-      "upside": -0.0716,
+      "price": 124461,
+      "upside": 1.1496,
       "probability": 0.5,
-      "eps_growth": 0.0
+      "eps_growth": 0.0466
     },
     "bull": {
-      "price": 35265,
-      "upside": 0.2374,
+      "price": 157137,
+      "upside": 1.7139,
       "probability": 0.25,
-      "eps_growth": 0.1
+      "eps_growth": 0.1466
     }
   },
   "valuation_level": "Cấp 1: bội số ngành",
@@ -40,40 +40,40 @@
     {
       "name": "P/B",
       "kind": "PB",
-      "weight": 0.5,
+      "weight": 0.2,
       "basis_label": "BVPS hiện tại (VND/cp)",
-      "basis_value": 22500,
+      "basis_value": 25679.55,
       "multiples": {
-        "p25": 1.1,
-        "median": 1.4,
-        "p75": 1.8
+        "p25": 4.0,
+        "median": 5.2,
+        "p75": 6.5
       },
       "values": {
-        "bear": 24750,
-        "base": 31500,
-        "bull": 40500
+        "bear": 102718,
+        "base": 133534,
+        "bull": 166917
       }
     },
     {
       "name": "P/E",
       "kind": "PE",
-      "weight": 0.5,
+      "weight": 0.8,
       "basis_label": "EPS TTM (VND/cp)",
-      "basis_value": 2100,
+      "basis_value": 5189,
       "multiples": {
-        "p25": 8.5,
-        "median": 10.2,
-        "p75": 13.0
+        "p25": 18.0,
+        "median": 22.5,
+        "p75": 26.0
       },
       "growth": {
-        "bear": -0.1,
-        "base": 0.0,
-        "bull": 0.1
+        "bear": -0.0534,
+        "base": 0.0466,
+        "bull": 0.1466
       },
       "values": {
-        "bear": 16065,
-        "base": 21420,
-        "bull": 30030
+        "bear": 88414,
+        "base": 122193,
+        "bull": 154692
       }
     }
   ],
@@ -81,84 +81,162 @@
     {
       "basis_change": -0.1,
       "multiple_case": "p25",
-      "target_price": 19170,
-      "upside": -0.3274
+      "target_price": 88873,
+      "upside": 0.5349
     },
     {
       "basis_change": -0.1,
       "multiple_case": "median",
-      "target_price": 23814,
-      "upside": -0.1644
+      "target_price": 112015,
+      "upside": 0.9346
     },
     {
       "basis_change": -0.1,
       "multiple_case": "p75",
-      "target_price": 30510,
-      "upside": 0.0705
+      "target_price": 131710,
+      "upside": 1.2748
     },
     {
       "basis_change": 0.0,
       "multiple_case": "p25",
-      "target_price": 21300,
-      "upside": -0.2526
+      "target_price": 98747,
+      "upside": 0.7055
     },
     {
       "basis_change": 0.0,
       "multiple_case": "median",
-      "target_price": 26460,
-      "upside": -0.0716
+      "target_price": 124461,
+      "upside": 1.1496
     },
     {
       "basis_change": 0.0,
       "multiple_case": "p75",
-      "target_price": 33900,
-      "upside": 0.1895
+      "target_price": 146344,
+      "upside": 1.5275
     },
     {
       "basis_change": 0.1,
       "multiple_case": "p25",
-      "target_price": 23430,
-      "upside": -0.1779
+      "target_price": 108622,
+      "upside": 0.876
     },
     {
       "basis_change": 0.1,
       "multiple_case": "median",
-      "target_price": 29106,
-      "upside": 0.0213
+      "target_price": 136907,
+      "upside": 1.3645
     },
     {
       "basis_change": 0.1,
       "multiple_case": "p75",
-      "target_price": 37290,
-      "upside": 0.3084
+      "target_price": 160979,
+      "upside": 1.7803
     }
   ],
   "downgrade_triggers": [
-    "Kịch bản bear thấp hơn giá hiện tại 28.4% (> 25%)."
+    "Xu hướng kỹ thuật đang suy yếu, giá nằm dưới các đường trung bình MA20/MA50"
   ],
   "reasons": [
-    "Giá mục tiêu 27.148 VND (25% bear + 50% base + 25% bull) so với giá điều chỉnh 28.500 VND: upside -4.7%. Phương pháp: Cấp 1: bội số ngành.",
-    "Hồ sơ balanced: 'Có cơ hội' khi upside >= 20.0%; 'Cần theo dõi' khi 0% <= upside < 20.0%; 'Chưa hấp dẫn' khi upside < 0%.",
-    "P/B hiện tại 1.27x so với trung vị tham chiếu 1.40x (trọng số 50%).",
-    "P/E hiện tại 13.6x so với trung vị tham chiếu 10.2x (trọng số 50%).",
-    "Xu hướng giá tăng; hỗ trợ 27000, kháng cự 30000.",
-    "Có cảnh báo rủi ro nhưng rating 'Chưa hấp dẫn' đã ở mức thấp nhất của thang cơ hội."
+    "Định giá tham khảo: Giá mục tiêu là 124.334 VND (tổng hợp từ 3 kịch bản: Thận trọng 25%, Cơ sở 50% và Tích cực 25%). So với thị giá đóng cửa hiện tại 57.900 VND, cổ phiếu có mức tăng trưởng kỳ vọng (Upside) là 114.7% (Phương pháp: Cấp 1: bội số ngành).",
+    "🧭 Thang bậc đánh giá theo khẩu vị 'Cân bằng': Hệ thống phân định 3 bậc khuyến nghị rõ ràng: (1) 'Có cơ hội' (tiềm năng sinh lời hấp dẫn, upside >= +20.0%); (2) 'Cần theo dõi' (định giá hợp lý, biên an toàn vừa phải, upside từ 0% đến dưới +20.0%); (3) 'Chưa hấp dẫn' (thị giá cao hơn giá trị thực hoặc tiềm ẩn rủi ro giảm giá, upside < 0%).",
+    "P/B hiện tại đạt 2.25 lần, thấp hơn so với hệ số tham chiếu của mô hình là 5.20 lần (đóng góp 20% vào kết quả).",
+    "P/E hiện tại đạt 11.2 lần, thấp hơn (định giá rẻ hơn) so với hệ số tham chiếu của mô hình là 22.5 lần (đóng góp 80% vào kết quả).",
+    "💼 Hiệu quả sinh lời: Tỷ suất sinh lời trên vốn chủ sở hữu (ROE) đạt 28.3%, phản ánh năng lực sinh lời của doanh nghiệp.",
+    "📈 Tăng trưởng kinh doanh: Lợi nhuận sau thuế suy giảm 16.6% so với cùng kỳ năm trước.",
+    "📉 Xu hướng vận động giá: Đang trong xu hướng giảm giá / điều chỉnh; vùng hỗ trợ kỹ thuật tại 57.500 VND và kháng cự tại 68.000 VND.",
+    "🛡️ Quản trị rủi ro & Bảo vệ vốn: Mặc dù biên an toàn ban đầu đạt mức 'Có cơ hội', hệ thống chủ động điều chỉnh hạ 1 bậc xuống 'Cần theo dõi'. Nguyên nhân: Xu hướng kỹ thuật đang suy yếu, giá nằm dưới các đường trung bình MA20/MA50. Khuyến nghị nhà đầu tư kiên nhẫn quan sát điểm cân bằng, không vội mua đuổi khi tín hiệu rủi ro chưa kết thúc.",
+    "🚀 Động lực tăng trưởng: (ĐTCK) Ngày 2/12 tới đây, CTCP FPT (FPT – sàn HOSE) sẽ chốt danh sách cổ đông tạm ứng cổ tức đợt 1/2025 bằng tiền với tỷ lệ 10%, tương ứng c...",
+    "🚀 Động lực tăng trưởng: (ĐTCK) 9 tháng năm 2025, CTCP FPT (FPT - sàn HOSE) ghi nhận doanh thu 49.887 tỷ đồng, lợi nhuận trước thuế 9.540 tỷ đồng, lần lượt tăng 10,3..."
   ],
   "risks": [
-    "Kịch bản bear thấp hơn giá hiện tại 28.4% (> 25%)."
+    "Xu hướng kỹ thuật đang suy yếu, giá nằm dưới các đường trung bình MA20/MA50",
+    "[Trung bình] Doanh thu giảm 16.4% so với cùng kỳ; cần theo dõi khả năng phục hồi kinh doanh. (Số liệu tăng trưởng trong báo cáo tài chính, 2026-10-10)",
+    "[Trung bình] Lợi nhuận sau thuế giảm 16.6% so với cùng kỳ; cần theo dõi khả năng phục hồi kinh doanh. (Số liệu tăng trưởng trong báo cáo tài chính, 2026-10-10)",
+    "[Trung bình] Giá đang trong xu hướng giảm; có thể tiếp tục biến động bất lợi trong ngắn hạn. (Chỉ báo kỹ thuật, 2026-10-09)",
+    "[Trung bình] Yếu tố cần theo dõi (không phải sự kiện đã xác nhận): Cần theo dõi nhu cầu khách hàng, chi phí nhân sự và biến động tỷ giá. (Khung rà soát nội bộ theo ngành: Công nghệ, 2026-10-10)",
+    "[Trung bình] Định giá sử dụng hệ số giả định nội bộ; kết quả có thể thay đổi đáng kể khi thay hệ số bằng thống kê thị trường đã xác minh. (Giả định mô hình định giá, 2026-10-10)"
   ],
-  "data_gaps": [
-    "Thiếu tăng trưởng EPS 3 năm (eps_cagr_3y); kịch bản cơ sở giả định tăng trưởng 0%.",
-    "Ngành chu kỳ nhưng thiếu EPS bình quân 5 năm (eps_avg_5y); dùng tạm EPS TTM.",
-    "BCTC chỉ có 0 năm trong financials_table (cần 5 năm cho độ tin cậy cao).",
-    "Thiếu chỉ tiêu phụ: profitability.roe, profitability.roa, profitability.net_margin, growth.revenue_yoy, growth.net_income_yoy, growth.eps_cagr_3y, profitability.gross_margin."
-  ],
+  "data_gaps": [],
   "assumptions": [
+    "Giá đóng cửa điều chỉnh là của phiên 2026-10-09, khác ngày báo cáo 2026-10-10 (phiên giao dịch gần nhất có dữ liệu).",
+    "CẢNH BÁO kết quả bất thường: upside 114.7% nằm ngoài khoảng [-40.0%, +50.0%]; cần kiểm tra lại dữ liệu đầu vào. Độ tin cậy đã hạ 1 mức.",
+    "Hệ số tham chiếu là giả định nội bộ, chưa phải thống kê ngành đã xác minh.",
     "Giá đóng cửa là giá điều chỉnh; EPS và ROE tính theo TTM (trừ P/E ngành chu kỳ dùng EPS bình quân 5 năm).",
-    "Nhóm định giá: Ngành chu kỳ; trọng số P/B/P/E = 50%/50% (tự dồn 100% vào phương pháp còn lại nếu một chỉ số âm/lỗi).",
-    "Tăng trưởng EPS 1 năm: bear -10.0%, base 0.0%, bull 10.0% (cơ sở lấy từ eps_cagr_3y, chặn trong [-10%, +15%]; bear/bull = cơ sở -/+ 10 điểm %). P/B áp dụng trên BVPS hiện tại.",
-    "Bear/Base/Bull dùng bội số P25/Median/P75; xác suất 25/50/25."
+    "Nhóm định giá: Công nghệ; trọng số P/B/P/E = 20%/80% (tự dồn 100% vào phương pháp còn lại nếu một chỉ số âm/lỗi).",
+    "Tăng trưởng EPS 1 năm: bear -5.3%, base 4.7%, bull 14.7% (cơ sở lấy từ eps_cagr_3y, chặn trong [-10%, +15%]; bear/bull = cơ sở -/+ 10 điểm %). P/B áp dụng trên BVPS hiện tại.",
+    "Bear/Base/Bull dùng bội số P25/Median/P75; xác suất theo hồ sơ rủi ro (balanced): 25%/50%/25%."
   ],
   "disclaimer": "Kết quả do hệ thống tự động tạo từ dữ liệu công khai, chỉ mang tính tham khảo, không phải khuyến nghị mua/bán. Nhà đầu tư tự chịu trách nhiệm với quyết định của mình.",
-  "sources": []
+  "sources": [
+    {
+      "name": "vnstock (KBS)",
+      "url": "https://vnstocks.com",
+      "date": "2026-10-10"
+    },
+    {
+      "name": "vnstock (Lịch sử giá)",
+      "url": "https://vnstocks.com",
+      "date": "2026-10-09"
+    },
+    {
+      "name": "vnstock/KBS",
+      "url": "https://vnstocks.com/docs/vnstock/tra-cuu-thong-tin-tham-chieu-reference",
+      "date": "2026-10-10"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com",
+      "date": "2026-10-10"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-chia-se-chien-luoc-lam-chu-nen-tang-cong-nghe-gop-phan-phat-trien-quoc-gia-so",
+      "date": "2026-10-09"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/ceo-fpt-chia-se-4-bai-hoc-chuyen-doi-cong-nghe-linh-vuc-ban-le-tai-aprce-tokyo-2026",
+      "date": "2026-10-09"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/truong-dh-fpt-co-4-giang-vien-lot-top-2-nha-khoa-hoc-anh-huong-nhat-the-gioi",
+      "date": "2026-10-09"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-gianh-ba-giai-thuong-asocio-ve-ai-khang-dinh-nang-luc-cong-nghe-viet-tren-ban-do-khu-vuc",
+      "date": "2026-10-07"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/ceo-fpt-lan-thu-3-lien-tiep-dac-cu-pho-chu-tich-asocio",
+      "date": "2026-10-06"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-duoc-vinh-danh-thuong-hieu-viet-vuon-tam-the-gioi-better-choice-awards-2026",
+      "date": "2026-10-05"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://fpt.com/vi/tin-tuc/fpt-duoc-vinh-danh-tai-thuong-hieu-manh-viet-nam-2026",
+      "date": "2026-10-04"
+    },
+    {
+      "name": "Vietstock via vnstock/KBS",
+      "url": "https://vietstock.vn/2026/09/theo-dau-dong-tien-ca-map-1009-khoi-ngoai-va-tu-doanh-gom-manh-vic-va-fpt-nhung-trai-chieu-tai-vhm-830-1491131.htm",
+      "date": "2026-09-10"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/fpt-tam-ung-co-tuc-10-bang-tien-mat-post380696.html",
+      "date": "2025-11-18"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/fpt-dat-loi-nhuan-truoc-thue-9540-ty-dong-trong-9-thang-tang-truong-176-post378986.html",
+      "date": "2025-10-21"
+    }
+  ]
 }

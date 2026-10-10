@@ -1,0 +1,12 @@
+.technical-chart-controls { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 8px; }
+.technical-chart-controls button { min-height:44px; padding:8px 14px; border:1px solid #CBD5E1; border-radius:7px; background:#FFF; color:#233F61; font:inherit; font-weight:600; cursor:pointer; }
+.technical-chart-controls button:hover { background:#EEF6FF; border-color:#146BDF; }
+.technical-chart-controls button:focus-visible { outline:3px solid #146BDF; outline-offset:2px; }
+.technical-chart-controls button:active { background:#DBEAFE; }
+.technical-chart-help { color:#475569; font-size:13px; line-height:1.65; margin:8px 0; }
+#technical-chart { height:700px; min-height:700px; border:1px solid #E2E8F0; border-radius:10px; overflow:hidden; }
+#technical-chart .nsewdrag { cursor:grab !important; }
+#technical-chart .nsewdrag:active { cursor:grabbing !important; }
+@media (max-width:600px) {
+    #technical-chart .modebar-container { display:none; }
+}

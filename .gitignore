@@ -3,3 +3,9 @@ __pycache__/
 *.pyc
 .vscode/
 outputs/charts/
+.env
+.idea/
+tmp/
+output/
+reports/*.pdf
+outputs/charts/*.png

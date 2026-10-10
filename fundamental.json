@@ -1,63 +1,181 @@
 {
-  "ticker": "VHM",
-  "as_of": "2026-10-09",
-  "generated_at": "2026-10-09T11:30:30",
+  "ticker": "FPT",
+  "as_of": "2026-10-10",
+  "generated_at": "2026-10-10T22:53:18",
   "latest_period": "2025",
+  "sector": "Công nghệ",
+  "valuation_ref": {
+    "pe": {
+      "p25": 18.0,
+      "median": 22.5,
+      "p75": 26.0
+    },
+    "pb": {
+      "p25": 4.0,
+      "median": 5.2,
+      "p75": 6.5
+    },
+    "source": "Bảng giả định nội bộ của ứng dụng - nhóm Công nghệ",
+    "reference_type": "internal_assumption",
+    "note": "Các mức thấp/cơ sở/cao là giả định của mô hình, chưa phải phân vị thống kê từ doanh nghiệp cùng ngành."
+  },
+  "financials_table": [
+    {
+      "year": "2026 (TTM)",
+      "revenue": 67276615985000.0,
+      "gross_profit": null,
+      "operating_profit": null,
+      "net_profit": 11055657918000.0,
+      "total_assets": 51650403735000.0,
+      "equity": 10970265720000.0,
+      "eps": 5189,
+      "bvps": 25680,
+      "roe": 0.283,
+      "roa": 0.1171,
+      "net_margin": 0.1643,
+      "debt_to_equity": 0.4817
+    },
+    {
+      "year": "2025",
+      "revenue": 70112825100710.0,
+      "gross_profit": 25888529512413.0,
+      "operating_profit": 12951675964776.0,
+      "net_profit": 11232339450734.0,
+      "total_assets": 88141991634625.0,
+      "equity": 43748040747539.0,
+      "eps": 5216,
+      "bvps": 20315,
+      "roe": 0.2568,
+      "roa": 0.1274,
+      "net_margin": 0.1602,
+      "debt_to_equity": 1.0148
+    },
+    {
+      "year": "2024",
+      "revenue": 62848794351367.0,
+      "gross_profit": 23698348369916.0,
+      "operating_profit": 11025080772955.0,
+      "net_profit": 9427422530444.0,
+      "total_assets": 71999995678620.0,
+      "equity": 35727540104800.0,
+      "eps": 4292,
+      "bvps": 16266,
+      "roe": 0.2639,
+      "roa": 0.1309,
+      "net_margin": 0.15,
+      "debt_to_equity": 1.0153
+    },
+    {
+      "year": "2023",
+      "revenue": 52617900827385.0,
+      "gross_profit": 20319553444682.0,
+      "operating_profit": 9111745534433.0,
+      "net_profit": 7788049739616.0,
+      "total_assets": 60282827532899.0,
+      "equity": 29933011216233.0,
+      "eps": 4661,
+      "bvps": 17914,
+      "roe": 0.2602,
+      "roa": 0.1292,
+      "net_margin": 0.148,
+      "debt_to_equity": 1.0139
+    },
+    {
+      "year": "2022",
+      "revenue": 44009527680911.0,
+      "gross_profit": 17167278641198.0,
+      "operating_profit": 7589289622311.0,
+      "net_profit": 6491343454469.0,
+      "total_assets": 51650403735130.0,
+      "equity": 25356124687812.0,
+      "eps": 3847,
+      "bvps": 15027,
+      "roe": 0.256,
+      "roa": 0.1257,
+      "net_margin": 0.1475,
+      "debt_to_equity": 1.037
+    },
+    {
+      "year": "2021",
+      "revenue": 35657262545027.0,
+      "gross_profit": 13631964236778.0,
+      "operating_profit": 6228494136764.0,
+      "net_profit": 5349301099496.0,
+      "total_assets": 53697940895875.0,
+      "equity": 21417985230037.0,
+      "eps": 4349,
+      "bvps": 17413,
+      "roe": 0.2498,
+      "roa": 0.0996,
+      "net_margin": 0.15,
+      "debt_to_equity": 1.5071
+    }
+  ],
+  "unit": "VND",
+  "basis": "Báo cáo theo năm; cột TTM dùng doanh thu và lợi nhuận của 12 tháng gần nhất. Tài sản, vốn chủ và các chỉ số còn lại trong cột TTM lấy từ kỳ 2025, trừ biên lợi nhuận ròng tính từ doanh thu và lợi nhuận TTM.",
   "growth": {
-    "revenue_growth_yoy": -0.397503,
-    "net_income_growth_yoy": -0.130358,
-    "revenue_growth_qoq": -0.840598
+    "revenue_growth_yoy": -0.163602,
+    "revenue_yoy": -0.163602,
+    "net_income_growth_yoy": -0.166499,
+    "net_income_yoy": -0.166499,
+    "revenue_growth_qoq": -0.149363,
+    "revenue_qoq": -0.149363,
+    "revenue_qoq_or_recent": -0.149363,
+    "net_income_qoq_or_recent": -0.028982,
+    "eps_cagr_3y": 0.0466
   },
   "margins": {
-    "gross_margin": 0.491987,
-    "operating_margin": 0.608615,
-    "net_margin": 0.467389
+    "gross_margin": 0.390081,
+    "operating_margin": 0.172447,
+    "net_margin": 0.147499
   },
   "profitability": {
-    "roe": 0.1901,
-    "roa": 0.062,
-    "roic": null
+    "roe": 0.283,
+    "roa": 0.1171,
+    "roic": 0.3307,
+    "net_margin": 0.147499,
+    "gross_margin": 0.390081,
+    "operating_margin": 0.172447
   },
   "leverage": {
-    "debt_to_equity": 0.5871,
-    "debt_to_assets": 0.1857,
-    "current_ratio": 1.45,
-    "quick_ratio": 1.07
+    "debt_to_equity": 0.4817,
+    "debt_to_assets": 0.2391,
+    "current_ratio": 1.4,
+    "quick_ratio": 1.35
   },
+  "banking": null,
   "cash_flow": {
-    "operating_cash_flow": 31003512000000.0,
+    "operating_cash_flow": 5053831757000.0,
     "operating_cash_flow_unit": "VND",
-    "free_cash_flow": 12704462000000.0,
+    "free_cash_flow": 1838588556000.0,
     "free_cash_flow_unit": "VND",
-    "fcf_per_share": 2884487.54,
+    "fcf_per_share": 1254456.61,
     "fcf_per_share_unit": "VND/cổ phiếu"
   },
   "ttm": {
-    "ttm_revenue": 187849052000000.0,
+    "ttm_revenue": 67276615985000.0,
     "ttm_revenue_unit": "VND",
-    "ttm_net_income": 60352265000000.0,
+    "ttm_net_income": 11055657918000.0,
     "ttm_net_income_unit": "VND",
-    "ttm_eps": null,
+    "ttm_eps": 5189.0,
     "ttm_eps_unit": "VND/cổ phiếu"
   },
   "per_share": {
-    "eps": 6621000.0,
+    "eps": 6021,
     "eps_unit": "VND/cổ phiếu",
-    "bvps": 60674.87,
+    "eps_ttm": 5189,
+    "eps_avg_5y": 5612,
+    "bvps": 25679.55,
     "bvps_unit": "VND/cổ phiếu",
-    "dividend_per_share": null,
+    "dividend_per_share": 2000.0,
+    "dps": 2000.0,
     "dividend_per_share_unit": "VND/cổ phiếu"
   },
   "sources": [
     {
       "name": "vnstock (KBS)",
       "url": "https://vnstocks.com",
-      "date": "2026-10-09"
-    },
-    {
-      "name": "vnfinancialdata (Hugging Face)",
-      "url": "https://huggingface.co/datasets/datasets-for-good/vnfinancialdata",
-      "date": "2026-10-09"
+      "date": "2026-10-10"
     }
   ]
 }

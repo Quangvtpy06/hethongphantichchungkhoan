@@ -1,0 +1,484 @@
+/* ==========================================================================
+   VibeStock Lens - Executive Light Design System
+   Designed based on UI/UX Pro Max Guidelines
+   Color Palette: Slate 900 (#0F172A), Slate 50 (#F8FAFC), Royal Blue (#1D4ED8)
+   High Contrast & Presentation/Projector Optimized
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+:root {
+    --bg-main: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --border-card: #E2E8F0;
+    --border-input: #CBD5E1;
+    --primary-blue: #1D4ED8;
+    --primary-hover: #1E40AF;
+    --text-primary: #0F172A;
+    --text-secondary: #334155;
+    --text-muted: #64748B;
+    --input-bg: #F1F5F9;
+    --success-bg: #DCFCE7;
+    --success-text: #14532D;
+    --warning-bg: #FEF3C7;
+    --warning-text: #78350F;
+    --danger-bg: #FEE2E2;
+    --danger-text: #7F1D1D;
+    --info-bg: #EFF6FF;
+    --info-text: #1E3A8A;
+}
+
+body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-primary) !important;
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ════════════════════ SIDEBAR & FORM INPUTS (BUG 2 FIX) ════════════════════ */
+.sidebar-container {
+    background-color: #FFFFFF !important;
+    border-right: 1.5px solid #CBD5E1 !important;
+    min-height: 100vh;
+    padding: 24px 20px;
+}
+
+.sidebar-title {
+    color: #1E3A8A;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar-subtitle {
+    color: #64748B;
+    font-size: 12px;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+.input-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #1E293B !important;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Đổi màu trong khung sang màu xám với chữ màu đen đậm */
+.form-control,
+input[type="text"],
+input[type="date"],
+input.form-control {
+    background-color: #F1F5F9 !important;
+    color: #0F172A !important;
+    border: 1.5px solid #CBD5E1 !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+    transition: all 0.2s ease !important;
+}
+
+.form-control:focus,
+input[type="text"]:focus,
+input.form-control:focus {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+    border-color: #1D4ED8 !important;
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.15) !important;
+    outline: none !important;
+}
+
+/* Dash Dropdown Styling */
+.Select-control {
+    background-color: #F1F5F9 !important;
+    border: 1.5px solid #CBD5E1 !important;
+    border-radius: 8px !important;
+    height: 42px !important;
+    color: #0F172A !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+}
+
+.Select-value-label,
+.Select-placeholder {
+    color: #0F172A !important;
+    font-weight: 700 !important;
+    line-height: 40px !important;
+}
+
+.Select-menu-outer {
+    background-color: #FFFFFF !important;
+    border: 1.5px solid #CBD5E1 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+    z-index: 1000 !important;
+}
+
+.Select-option {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+    font-weight: 600 !important;
+    padding: 10px 14px !important;
+}
+
+.Select-option:hover,
+.Select-option.is-focused {
+    background-color: #EFF6FF !important;
+    color: #1D4ED8 !important;
+}
+
+/* Nút bấm Phân tích & Tải PDF */
+.btn-analyze-action {
+    background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 100%) !important;
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    font-size: 14px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 18px !important;
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.25) !important;
+    transition: all 0.2s ease !important;
+    width: 100%;
+}
+
+.btn-analyze-action:hover {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
+    box-shadow: 0 6px 16px rgba(29, 78, 216, 0.35) !important;
+    transform: translateY(-1px);
+}
+
+.btn-pdf-download {
+    background: linear-gradient(135deg, #059669 0%, #10B981 100%) !important;
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    font-size: 13px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 11px 16px !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25) !important;
+    transition: all 0.2s ease !important;
+    width: 100%;
+    text-align: center;
+    display: block;
+    text-decoration: none !important;
+}
+
+.btn-pdf-download:hover {
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4) !important;
+    transform: translateY(-1px);
+    color: #FFFFFF !important;
+}
+
+
+/* ════════════════════ BRAND HEADER (HERO BAR) ════════════════════ */
+.brand-header-card {
+    background: linear-gradient(135deg, #FFFFFF 0%, #EFF6FF 100%);
+    border: 1.5px solid #BFDBFE;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.06);
+}
+
+.brand-main-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1E3A8A;
+    margin: 0;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-description {
+    font-size: 13px;
+    color: #475569;
+    margin-top: 4px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.active-ticker-display {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 800;
+    color: #1D4ED8;
+    line-height: 1;
+}
+
+
+/* ════════════════════ 4 THẺ KPI CHỦ LỰC ════════════════════ */
+.kpi-metric-card {
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: all 0.2s ease;
+}
+
+.kpi-metric-card:hover {
+    border-color: #93C5FD;
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.08);
+}
+
+.kpi-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #64748B;
+    margin-bottom: 6px;
+}
+
+.kpi-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0F172A;
+    line-height: 1.2;
+}
+
+.kpi-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+
+/* ════════════════════ BADGES RATING ĐẦU TƯ ════════════════════ */
+.badge-rating-buy {
+    background: #DCFCE7;
+    color: #14532D;
+    border: 1.5px solid #86EFAC;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 14px;
+    font-weight: 800;
+    display: inline-block;
+}
+
+.badge-rating-hold {
+    background: #FEF3C7;
+    color: #78350F;
+    border: 1.5px solid #FDE68A;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 14px;
+    font-weight: 800;
+    display: inline-block;
+}
+
+.badge-rating-sell {
+    background: #FEE2E2;
+    color: #7F1D1D;
+    border: 1.5px solid #FCA5A5;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 14px;
+    font-weight: 800;
+    display: inline-block;
+}
+
+.badge-rating-nodata {
+    background: #F1F5F9;
+    color: #475569;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 14px;
+    font-weight: 800;
+    display: inline-block;
+}
+
+
+/* ════════════════════ TABS NAVIGATION (BUG 1 FIX) ════════════════════ */
+/* Hiển thị rõ ràng chữ trên các tab, không bị ẩn hay phải rê chuột mới thấy */
+.nav-tabs {
+    border-bottom: 2px solid #CBD5E1 !important;
+    gap: 8px !important;
+    background-color: #F1F5F9 !important;
+    padding: 8px 8px 0 8px !important;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.nav-tabs .nav-link {
+    color: #0F172A !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    background-color: #FFFFFF !important;
+    border: 1.5px solid #CBD5E1 !important;
+    border-bottom: none !important;
+    border-radius: 8px 8px 0 0 !important;
+    padding: 10px 20px !important;
+    margin-bottom: -2px !important;
+    transition: all 0.2s ease !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #E2E8F0 !important;
+    color: #1D4ED8 !important;
+    border-color: #93C5FD !important;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #1D4ED8 !important;
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    border: 1.5px solid #1D4ED8 !important;
+    border-bottom: 1.5px solid #1D4ED8 !important;
+    box-shadow: 0 4px 10px rgba(29, 78, 216, 0.25) !important;
+}
+
+.tab-content {
+    background: #FFFFFF;
+    border: 1.5px solid #CBD5E1;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ════════════════════ ALERTS & WARNINGS (BUG 3 FIX) ════════════════════ */
+/* Chữ cảnh báo và thông báo tương phản đậm nét, dễ đọc trên máy chiếu */
+.alert-custom-success {
+    background-color: #DCFCE7 !important;
+    border: 1.5px solid #86EFAC !important;
+    color: #14532D !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    padding: 14px 18px !important;
+    margin-bottom: 14px !important;
+}
+
+.alert-custom-warning {
+    background-color: #FEF3C7 !important;
+    border: 1.5px solid #FCD34D !important;
+    color: #78350F !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    padding: 14px 18px !important;
+    margin-bottom: 14px !important;
+}
+
+.alert-custom-danger {
+    background-color: #FEE2E2 !important;
+    border: 1.5px solid #FCA5A5 !important;
+    color: #7F1D1D !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    padding: 14px 18px !important;
+    margin-bottom: 14px !important;
+}
+
+.alert-custom-info {
+    background-color: #EFF6FF !important;
+    border: 1.5px solid #BFDBFE !important;
+    color: #1E3A8A !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    padding: 14px 18px !important;
+    margin-bottom: 14px !important;
+}
+
+
+/* ════════════════════ TABLES (BUG 5 FIX) ════════════════════ */
+/* Bảng dữ liệu có ô nền trắng xám, chữ đen đậm, không còn ô nền đen */
+.table-container-card {
+    background: #FFFFFF;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.executive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 13px;
+    background-color: #FFFFFF;
+}
+
+.executive-table th {
+    background-color: #F1F5F9 !important;
+    color: #0F172A !important;
+    font-weight: 800 !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    padding: 12px 14px !important;
+    border-bottom: 2px solid #CBD5E1 !important;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.executive-table td {
+    color: #0F172A !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    padding: 11px 14px !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    white-space: nowrap;
+    background-color: #FFFFFF;
+}
+
+.executive-table tr:nth-child(even) td {
+    background-color: #F8FAFC !important;
+}
+
+.executive-table tr:hover td {
+    background-color: #EFF6FF !important;
+    color: #1D4ED8 !important;
+}
+
+.table-num-right {
+    text-align: right !important;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700 !important;
+}
+
+
+/* ════════════════════ SECTION HEADERS & CONTENT ════════════════════ */
+.section-headline {
+    font-size: 16px;
+    font-weight: 800;
+    color: #1E40AF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.scenario-card {
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    height: 100%;
+}
