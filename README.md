@@ -15,7 +15,7 @@ flowchart LR
     A --> D(3. Company News: Tin tức & Cờ rủi ro)
     B & C & D --> E(4. Valuation: Định giá P/E, P/B, Gordon & Rating)
     E --> F(5. ReportLab PDF: Kết xuất Báo cáo 14+ trang)
-    F --> G[Giao Diện Streamlit: Xem Dashboard & Tải PDF]
+    F --> G[Giao Diện Dash + Plotly: Xem Dashboard & Tải PDF]
 ```
 
 1. **`technical.py` (Kỹ thuật & Biểu đồ)**:
