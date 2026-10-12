@@ -424,7 +424,9 @@ def run_analysis_pipeline(n_clicks: int, ticker_in: str, as_of_in: str, risk_in:
 
         if result.get("status") in ["success", "partial"]:
             success_msg = html.Div(
-                f"✅ Hoàn tất phân tích {t_clean} và xuất bản PDF thành công!",
+                f"✅ Hoàn tất phân tích {t_clean} và xuất bản PDF thành công! "
+                f"({result.get('timings_seconds', {}).get('total', 0):.1f} giây; "
+                f"cache: {', '.join(k for k, hit in result.get('cache_hits', {}).items() if hit) or 'không'})",
                 className="alert-custom-success"
             )
             return result, success_msg

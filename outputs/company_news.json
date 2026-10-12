@@ -1,0 +1,574 @@
+{
+  "ticker": "DGW",
+  "as_of": "2026-10-12",
+  "company": {
+    "founded_date": null,
+    "listing_date": "2015-08-03",
+    "number_of_employees": 767,
+    "ceo_name": "Mr. Đoàn Hồng Việt",
+    "ceo_position": "Chủ tịch HĐQT",
+    "company_type": "Công ty cổ phần",
+    "address": "Tầng 15 - Tòa nhà Etown Central - Số 11 Đoàn Văn Bơ - P. Xóm Chiếu - Tp. Hồ Chí Minh",
+    "phone": "(84.28) 3929 0059",
+    "email": "info@dgw.com.vn",
+    "website": "https://digiworld.com.vn",
+    "auditor": "Ernst & Young",
+    "business_code": "0302861742",
+    "tax_id": "0302861742",
+    "history": "- Năm 1997: Tiền thân CT TNHH Hoàng Phượng. - Năm 2003: Cổ phần hóa thành CTCP Thế giới Số,trở thành nhà phân phối chính thức của Acer. - Năm 2004: Khai trương chi nhánh Hà Nội. - Năm 2006: Khai trương chi nhánh Đà Nẵng. - Năm 2007: Top 500 công ty lớn nhất Việt Nam. - Ngày 24/07/2015: Được chấp thuận niêm yết trên HOSE. - Ngày 03/08/2015: Ngày giao dịch ngày đầu tiên với giá đóng cửa: 57,500 đồng. - Ngày 06/02/2017: Tăng vốn điều lệ lên 397,517,470,000 đồng. - Ngày 10/01/2018: Tăng vốn điều lệ lên 407,517,470,000 đồng. - Ngày 25/04/2019: Tăng vốn điều lệ lên 419,517,470,000 đồng. - Ngày 24/04/2020: Tăng vốn điều lệ lên 431,517,470,000 đồng. - Ngày 07/07/2021: Tăng vốn điều lệ lên 443,517,470,000 đồng. - Ngày 13/09/2021: Tăng vốn điều lệ lên 885,520,250,000 đồng. - Ngày 18/05/2022: Tăng vốn điều lệ lên 907,520,250,000 đồng. - Ngày 22/07/2022: Tăng vốn điều lệ lên 1,632,299,430,000 đồng. - Ngày 23/10/2023: Tăng vốn điều lệ lên 1,672,244,430,000 đồng. - Ngày 06/05/2024: Giảm vốn điều lệ xuống 1,672,047,430,000 đồng. - Ngày 30/09/2024: Tăng vốn điều lệ lên 2,173,201,690,000 đồng. - Ngày 11/12/2024: Tăng vốn điều lệ lên 2,193,201,690,000 đồng. - Ngày 15/10/2025: Tăng vốn điều lệ lên 2,213,201,690,000 đồng. - Ngày 09/09/2026: Tăng vốn điều lệ lên 2,235,201,690,000 đồng.",
+    "as_of_date": "2026-06-30",
+    "name": "CTCP Thế Giới Số",
+    "english_name": "Digiworld Corp.",
+    "exchange": "HOSE",
+    "industry": {
+      "level_1": "Dịch vụ Tiêu dùng",
+      "level_2": "Bán lẻ",
+      "level_3": "Bán lẻ",
+      "level_4": "Phân phối hàng chuyên dụng"
+    },
+    "charter_capital": {
+      "value": 2235201690000,
+      "unit": "VND",
+      "as_of": "2026-09-09"
+    },
+    "business_model": "- Phân tích thị trường & lên kế hoạch marketing. - Triển khai marketing. - Nhập khẩu, kho bãi, hậu cần. - Dịch vụ phân phối và bán hàng.",
+    "revenue_structure": [
+      {
+        "segment": "Phân tích thị trường & lên kế hoạch marketing",
+        "revenue_share": null,
+        "unit": "decimal",
+        "as_of": null
+      },
+      {
+        "segment": "Triển khai marketing",
+        "revenue_share": null,
+        "unit": "decimal",
+        "as_of": null
+      },
+      {
+        "segment": "Nhập khẩu, kho bãi, hậu cần",
+        "revenue_share": null,
+        "unit": "decimal",
+        "as_of": null
+      },
+      {
+        "segment": "Dịch vụ phân phối và bán hàng",
+        "revenue_share": null,
+        "unit": "decimal",
+        "as_of": null
+      }
+    ],
+    "revenue_structure_note": "Các mảng được suy ra từ mô tả hoạt động của vnstock; tỷ trọng doanh thu để null khi không có dữ liệu phân khúc đã kiểm chứng."
+  },
+  "governance": {
+    "major_shareholders": [
+      {
+        "name": "CTCP Created Future",
+        "update_date": "2026-09-08",
+        "shares_owned": 71600960,
+        "ownership_percentage": 0.3238
+      }
+    ],
+    "officers": [
+      {
+        "from_date": "2003-01-01",
+        "position": "CTHĐQT",
+        "name": "Ông Đoàn Hồng Việt",
+        "position_en": "CTHĐQT (Chairman of BOD)",
+        "owner_code": "CTHĐQT"
+      },
+      {
+        "from_date": null,
+        "position": "TVHĐQT/Chủ tịch Ủy ban Kiểm toán",
+        "name": "Ông Nguyễn Duy Tùng",
+        "position_en": "TVHĐQT (Member of BOD)",
+        "owner_code": "TVHĐQT"
+      },
+      {
+        "from_date": null,
+        "position": "TVHĐQT/TV Ủy ban Kiểm toán",
+        "name": "Ông Trần Bảo Minh",
+        "position_en": "TVHĐQT (Member of BOD)",
+        "owner_code": "TVHĐQT"
+      },
+      {
+        "from_date": "2003-01-01",
+        "position": "TVHĐQT/Phó TGĐ",
+        "name": "Bà Tô Hồng Trang",
+        "position_en": "TVHĐQT (Member of BOD)",
+        "owner_code": "TVHĐQT"
+      },
+      {
+        "from_date": "2003-01-01",
+        "position": "TGĐ/TVHĐQT",
+        "name": "Bà Đặng Kiện Phương",
+        "position_en": "TGĐ (CEO)",
+        "owner_code": "TGĐ"
+      },
+      {
+        "from_date": null,
+        "position": "KTT",
+        "name": "Bà Vũ Thị Mai Hân",
+        "position_en": "KTT (Chief Accountant)",
+        "owner_code": "KTT"
+      }
+    ],
+    "ownership": [
+      {
+        "owner_type": "Tổ chức trong nước",
+        "ownership_percentage": 0.5409,
+        "shares_owned": 119706086,
+        "update_date": "2025-12-31"
+      },
+      {
+        "owner_type": "Cá nhân nước ngoài",
+        "ownership_percentage": 0.38,
+        "shares_owned": 841388,
+        "update_date": "2025-12-31"
+      },
+      {
+        "owner_type": "Tổ chức nước ngoài",
+        "ownership_percentage": 0.2131,
+        "shares_owned": 47168182,
+        "update_date": "2025-12-31"
+      }
+    ],
+    "subsidiaries": [
+      {
+        "update_date": "2026-06-30",
+        "name": "Công ty TNHH Nexta Capital",
+        "charter_capital": 425600000000000,
+        "ownership_percent": 1.0,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "Công ty TNHH MTV 1 Digital Technology",
+        "charter_capital": 30000000000,
+        "ownership_percent": 1.0,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "Công ty TNHH MTV Dpharma",
+        "charter_capital": 12000000000,
+        "ownership_percent": 1.0,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "CTCP Dịch vụ Phát triển Thị trường C.L.",
+        "charter_capital": 23600000000,
+        "ownership_percent": 0.9915,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "CTCP Tập đoàn B2X",
+        "charter_capital": 6000000000,
+        "ownership_percent": 0.9,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "Công ty TNHH B2X Care Solutions Việt Nam",
+        "charter_capital": 1000000000,
+        "ownership_percent": 0.9,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "CTCP A Chi Son",
+        "charter_capital": 60000000000,
+        "ownership_percent": 0.7699,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "CTCP Thương mại và Sản xuất Bellvina",
+        "charter_capital": 10000000000,
+        "ownership_percent": 0.7699,
+        "currency": "VND",
+        "type": "công ty con"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "CTCP Dược phẩm Đại Tín",
+        "charter_capital": 241900000000,
+        "ownership_percent": 0.3601,
+        "currency": "VND",
+        "type": "công ty liên kết"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "Công ty TNHH Digiworld Venture",
+        "charter_capital": 211760000000000,
+        "ownership_percent": 0.19,
+        "currency": "VND",
+        "type": "công ty liên kết"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "CTCP Việt Money",
+        "charter_capital": 125190000000000,
+        "ownership_percent": 0.19,
+        "currency": "VND",
+        "type": "công ty liên kết"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "CTCP Việt Money Holding",
+        "charter_capital": 6565000000000,
+        "ownership_percent": 0.19,
+        "currency": "VND",
+        "type": "công ty liên kết"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "Công ty TNHH MTV Giải pháp Bất động sản Việt Land",
+        "charter_capital": 1000000000,
+        "ownership_percent": 0.19,
+        "currency": "VND",
+        "type": "công ty liên kết"
+      },
+      {
+        "update_date": "2026-06-30",
+        "name": "Công ty TNHH Giải pháp Công nghệ Việt Technologies",
+        "charter_capital": 1000000000,
+        "ownership_percent": 0.19,
+        "currency": "VND",
+        "type": "công ty liên kết"
+      }
+    ],
+    "capital_history": [
+      {
+        "date": "2026-09-09",
+        "charter_capital": 2235201690000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 2213201690000,
+        "currency": "VND"
+      },
+      {
+        "date": "2024-11-12",
+        "charter_capital": 2193201690000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 2173201690000,
+        "currency": "VND"
+      },
+      {
+        "date": "2024-06-05",
+        "charter_capital": 1672047430000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 1672244430000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 1632299430000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 907520250000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 885520250000,
+        "currency": "VND"
+      },
+      {
+        "date": "2021-07-07",
+        "charter_capital": 443517470000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 431517470000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 419517470000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 407517470000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 397517470000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 306133290000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 235836690000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 108024690000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 87501000000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 87500000000,
+        "currency": "VND"
+      },
+      {
+        "date": null,
+        "charter_capital": 40000000000,
+        "currency": "VND"
+      }
+    ]
+  },
+  "recent_events": null,
+  "news": [
+    {
+      "date": "2026-09-22",
+      "title": "Digiworld (DGW) chốt quyền chia cổ tức đợt 1/2026 bằng tiền mặt, tỷ lệ 10%",
+      "summary": "(ĐTCK) Ngày 6/10 tới đây, CTCP Thế giới Số (Digiworld, mã DGW - sàn HOSE) sẽ chốt danh sách cổ đông tạm ứng cổ tức đợt 1/2026 với tỷ lệ 10% bằng tiền mặt, tương đương cổ đông sở hữu 1 cổ phiếu sẽ được nhận 1.000 đồng.",
+      "sentiment": "positive",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-chot-quyen-chia-co-tuc-dot-12026-bang-tien-mat-ty-le-10-post398072.html"
+    },
+    {
+      "date": "2026-09-16",
+      "title": "DGW: Báo cáo tiến độ sử dụng số tiền thu được từ đợt phát hành ESOP",
+      "summary": "DGW: Báo cáo tiến độ sử dụng số tiền thu được từ đợt phát hành ESOP",
+      "sentiment": "neutral",
+      "source": "Vietstock via vnstock/KBS",
+      "url": "https://vietstock.vn/2026/09/dgw-bao-cao-tien-do-su-dung-so-tien-thu-duoc-tu-dot-phat-hanh-esop-764-1493080.htm"
+    },
+    {
+      "date": "2026-09-10",
+      "title": "Digiworld (DGW): Công ty liên quan Chủ tịch Đoàn Hồng Việt mua vào 2 triệu cổ phiếu",
+      "summary": "(ĐTCK) Cổ phiếu giảm 23,4% từ đầu tháng 2, công ty liên quan Chủ tịch Đoàn Hồng Việt đã mua vào nâng sở hữu lên 32,06% vốn tại CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE).",
+      "sentiment": "neutral",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-cong-ty-lien-quan-chu-tich-doan-hong-viet-mua-vao-2-trieu-co-phieu-post397309.html"
+    },
+    {
+      "date": "2026-08-27",
+      "title": "Digiworld (DGW) muốn trả cổ tức năm 2026 với tỷ lệ 30%",
+      "summary": "(ĐTCK) CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) công bố tài liệu lấy ý kiến cổ đông bằng văn bản, thời gian lấy ý kiến tới trước 12 giờ ngày 15/9.",
+      "sentiment": "positive",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-muon-tra-co-tuc-nam-2026-voi-ty-le-30-post396587.html"
+    },
+    {
+      "date": "2026-08-08",
+      "title": "Cổ đông lớn của Digiworld (DGW) đăng ký mua vào 2 triệu cổ phiếu",
+      "summary": "(ĐTCK) Cổ phiếu mất 27,9% giá trị từ đầu tháng 2, tổ chức liên quan Chủ tịch CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) muốn mua thêm 2 triệu cổ phiếu.",
+      "sentiment": "neutral",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/co-dong-lon-cua-digiworld-dgw-dang-ky-mua-vao-2-trieu-co-phieu-post395504.html"
+    },
+    {
+      "date": "2026-07-29",
+      "title": "Digiworld (DGW) đang đầu tư 300,5 tỷ đồng vào cổ phiếu KBC và HPG",
+      "summary": "(ĐTCK) CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) ghi nhận lãi 309,05 tỷ đồng trong quý II, luỹ kế nửa đầu năm 2026 lãi 510,93 tỷ đồng, tăng 127,1% so với cùng kỳ và hoàn thành 77,4% so với kế hoạch năm.",
+      "sentiment": "positive",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-dang-dau-tu-3005-ty-dong-vao-co-phieu-kbc-va-hpg-post394927.html"
+    },
+    {
+      "date": "2026-04-27",
+      "title": "Ngay sau ĐHCĐ, Digiworld (DGW) chốt quyền chia cổ tức 10% bằng tiền mặt",
+      "summary": "(ĐTCK) Ngày 14/5 tới đây, CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) sẽ chốt danh sách cổ đông chi trả cổ tức năm 2025 bằng tiền mặt với tỷ lệ 10%, tương ứng cổ đông sở hữu 1 cổ phiếu sẽ được nhận 1.000 đồng.",
+      "sentiment": "positive",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/ngay-sau-dhcd-digiworld-dgw-chot-quyen-chia-co-tuc-10-bang-tien-mat-post389574.html"
+    },
+    {
+      "date": null,
+      "title": "TÔN VINH 20 NĂM ROG: KHẲNG ĐỊNH VỊ THẾ ĐỐI TÁC CHIẾN LƯỢC CỦA DIGIWORLD",
+      "summary": "Tại sự kiện kỷ niệm 20 năm thành lập thương hiệu Republic of Gamers (ROG), Công ty Cổ phần Thế Giới Số (Digiworld - DGW) đã vinh dự được xướng tên và ghi nhận như một trong những đối tác chiến lược trọng yếu hàng đầu. Sự kiện không chỉ đánh dấu hai thập kỷ định hình chuẩn mực gaming thế giới của ASUS ROG, mà còn khẳng định năng lực phát triển thị trường (MES) toàn diện của Digiworld tại Việt Nam.",
+      "sentiment": "neutral",
+      "source": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn/tin-tuc/t%C3%B4n-vinh-20-n%C4%83m-rog-kh%E1%BA%B3ng-%C4%91%E1%BB%8Bnh-v%E1%BB%8B-th%E1%BA%BF-%C4%91%E1%BB%91i-t%C3%A1c-chi%E1%BA%BFn-l%C6%B0%E1%BB%A3c-c%E1%BB%A7a-digiworld"
+    },
+    {
+      "date": null,
+      "title": "DIGIWORLD VÀ CHIẾN LƯỢC ĐỒNG HÀNH ĐẠI LÝ NÂNG CAO NĂNG LỰC SỐ TRONG GIÁO DỤC",
+      "summary": "Trước tình hình nhiều trường học đang được đầu tư hệ thống phòng học thông minh nhưng vẫn gặp khó khăn trong việc khai thác hiệu quả, Digiworld lựa chọn một hướng đi khác: Không chỉ mang đến các thiết bị công nghệ, mà còn đồng hành cùng nhà trường và các đại lý trong suốt quá trình chuyển đổi số.",
+      "sentiment": "negative",
+      "source": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn/tin-tuc/digiworld-v%C3%A0-chi%E1%BA%BFn-l%C6%B0%E1%BB%A3c-%C4%91%E1%BB%93ng-h%C3%A0nh-%C4%91%E1%BA%A1i-l%C3%BD-n%C3%A2ng-cao-n%C4%83ng-l%E1%BB%B1c-s%E1%BB%91-trong-gi%C3%A1o-d%E1%BB%A5c"
+    }
+  ],
+  "news_summary": {
+    "article_count": 9,
+    "positive_count": 4,
+    "neutral_count": 4,
+    "negative_count": 1,
+    "method": "rule_based_keyword_classification"
+  },
+  "growth_drivers": [
+    {
+      "summary": "(ĐTCK) Ngày 6/10 tới đây, CTCP Thế giới Số (Digiworld, mã DGW - sàn HOSE) sẽ chốt danh sách cổ đông tạm ứng cổ tức đợt 1/2026 với tỷ lệ 10% bằng tiền mặt, tương đương cổ đông sở hữu 1 cổ phiếu sẽ được nhận 1.000 đồng.",
+      "date": "2026-09-22",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-chot-quyen-chia-co-tuc-dot-12026-bang-tien-mat-ty-le-10-post398072.html"
+    },
+    {
+      "summary": "(ĐTCK) CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) công bố tài liệu lấy ý kiến cổ đông bằng văn bản, thời gian lấy ý kiến tới trước 12 giờ ngày 15/9.",
+      "date": "2026-08-27",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-muon-tra-co-tuc-nam-2026-voi-ty-le-30-post396587.html"
+    },
+    {
+      "summary": "(ĐTCK) CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) ghi nhận lãi 309,05 tỷ đồng trong quý II, luỹ kế nửa đầu năm 2026 lãi 510,93 tỷ đồng, tăng 127,1% so với cùng kỳ và hoàn thành 77,4% so với kế hoạch năm.",
+      "date": "2026-07-29",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-dang-dau-tu-3005-ty-dong-vao-co-phieu-kbc-va-hpg-post394927.html"
+    },
+    {
+      "summary": "(ĐTCK) Ngày 14/5 tới đây, CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) sẽ chốt danh sách cổ đông chi trả cổ tức năm 2025 bằng tiền mặt với tỷ lệ 10%, tương ứng cổ đông sở hữu 1 cổ phiếu sẽ được nhận 1.000 đồng.",
+      "date": "2026-04-27",
+      "source": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/ngay-sau-dhcd-digiworld-dgw-chot-quyen-chia-co-tuc-10-bang-tien-mat-post389574.html"
+    }
+  ],
+  "risks": [
+    {
+      "summary": "Trước tình hình nhiều trường học đang được đầu tư hệ thống phòng học thông minh nhưng vẫn gặp khó khăn trong việc khai thác hiệu quả, Digiworld lựa chọn một hướng đi khác: Không chỉ mang đến các thiết bị công nghệ, mà còn đồng hành cùng nhà trường và các đại lý trong suốt quá trình chuyển đổi số.",
+      "date": null,
+      "source": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn/tin-tuc/digiworld-v%C3%A0-chi%E1%BA%BFn-l%C6%B0%E1%BB%A3c-%C4%91%E1%BB%93ng-h%C3%A0nh-%C4%91%E1%BA%A1i-l%C3%BD-n%C3%A2ng-cao-n%C4%83ng-l%E1%BB%B1c-s%E1%BB%91-trong-gi%C3%A1o-d%E1%BB%A5c"
+    }
+  ],
+  "sources": [
+    {
+      "name": "vnstock/KBS",
+      "url": "https://vnstocks.com/docs/vnstock/tra-cuu-thong-tin-tham-chieu-reference",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-chot-quyen-chia-co-tuc-dot-12026-bang-tien-mat-ty-le-10-post398072.html",
+      "date": "2026-09-22"
+    },
+    {
+      "name": "Vietstock via vnstock/KBS",
+      "url": "https://vietstock.vn/2026/09/dgw-bao-cao-tien-do-su-dung-so-tien-thu-duoc-tu-dot-phat-hanh-esop-764-1493080.htm",
+      "date": "2026-09-16"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-cong-ty-lien-quan-chu-tich-doan-hong-viet-mua-vao-2-trieu-co-phieu-post397309.html",
+      "date": "2026-09-10"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-muon-tra-co-tuc-nam-2026-voi-ty-le-30-post396587.html",
+      "date": "2026-08-27"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/co-dong-lon-cua-digiworld-dgw-dang-ky-mua-vao-2-trieu-co-phieu-post395504.html",
+      "date": "2026-08-08"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-dang-dau-tu-3005-ty-dong-vao-co-phieu-kbc-va-hpg-post394927.html",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/ngay-sau-dhcd-digiworld-dgw-chot-quyen-chia-co-tuc-10-bang-tien-mat-post389574.html",
+      "date": "2026-04-27"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn/tin-tuc/t%C3%B4n-vinh-20-n%C4%83m-rog-kh%E1%BA%B3ng-%C4%91%E1%BB%8Bnh-v%E1%BB%8B-th%E1%BA%BF-%C4%91%E1%BB%91i-t%C3%A1c-chi%E1%BA%BFn-l%C6%B0%E1%BB%A3c-c%E1%BB%A7a-digiworld",
+      "date": null
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn/tin-tuc/digiworld-v%C3%A0-chi%E1%BA%BFn-l%C6%B0%E1%BB%A3c-%C4%91%E1%BB%93ng-h%C3%A0nh-%C4%91%E1%BA%A1i-l%C3%BD-n%C3%A2ng-cao-n%C4%83ng-l%E1%BB%B1c-s%E1%BB%91-trong-gi%C3%A1o-d%E1%BB%A5c",
+      "date": null
+    }
+  ],
+  "methodology_reference": {
+    "name": "vn-annual-report-miner (MIT) - multi-source news methodology",
+    "url": "https://github.com/Tumiqa/vn-annual-report-miner"
+  },
+  "warnings": [],
+  "web_fetch_stats": {
+    "discovery_seconds": 1.178,
+    "candidate_count": 15,
+    "article_cache_hits": 0,
+    "article_seconds": 1.205,
+    "total_seconds": 2.383
+  },
+  "business_summary": "- Phân tích thị trường & lên kế hoạch marketing. - Triển khai marketing. - Nhập khẩu, kho bãi, hậu cần. - Dịch vụ phân phối và bán hàng.",
+  "revenue_mix": {
+    "Phân tích thị trường & lên kế hoạc": "Mảng chủ lực",
+    "Triển khai marketing": "Mảng chủ lực",
+    "Nhập khẩu, kho bãi, hậu cần": "Mảng chủ lực",
+    "Dịch vụ phân phối và bán hàng": "Mảng chủ lực"
+  },
+  "drivers": [
+    "(ĐTCK) Ngày 6/10 tới đây, CTCP Thế giới Số (Digiworld, mã DGW - sàn HOSE) sẽ chốt danh sách cổ đông tạm ứng cổ tức đợt 1/2026 với tỷ lệ 10% ...",
+    "(ĐTCK) CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) công bố tài liệu lấy ý kiến cổ đông bằng văn bản, thời gian lấy ý kiến tới trước 12 g...",
+    "(ĐTCK) CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) ghi nhận lãi 309,05 tỷ đồng trong quý II, luỹ kế nửa đầu năm 2026 lãi 510,93 tỷ đồng,...",
+    "(ĐTCK) Ngày 14/5 tới đây, CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) sẽ chốt danh sách cổ đông chi trả cổ tức năm 2025 bằng tiền mặt vớ..."
+  ],
+  "risk_flags": [
+    {
+      "text": "Trước tình hình nhiều trường học đang được đầu tư hệ thống phòng học thông minh nhưng vẫn gặp khó khăn trong việc khai thác hiệu quả, Digiworld lựa chọn một hướng đi khác: Không chỉ mang đến các thiết bị công nghệ, mà còn đồng hành cùng nhà trường và các đại lý trong suốt quá trình chuyển đổi số.",
+      "source": "Website doanh nghiệp",
+      "severity": "medium",
+      "category": "observed",
+      "date": "2026-10-12"
+    },
+    {
+      "text": "Yếu tố cần theo dõi (không phải sự kiện đã xác nhận): Sức mua yếu, hàng tồn kho và cạnh tranh giá có thể làm giảm lợi nhuận.",
+      "source": "Khung rà soát nội bộ theo ngành: Bán lẻ",
+      "severity": "medium",
+      "category": "sector_watch",
+      "date": "2026-10-12"
+    },
+    {
+      "text": "Định giá sử dụng hệ số giả định nội bộ; kết quả có thể thay đổi đáng kể khi thay hệ số bằng thống kê thị trường đã xác minh.",
+      "source": "Giả định mô hình định giá",
+      "severity": "medium",
+      "category": "model",
+      "date": "2026-10-12"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "ticker": "DGW",
+  "as_of": "2026-10-12",
+  "generated_at": "2026-10-12T11:12:21+07:00",
+  "sources": [
+    {
+      "name": "vnstock (Lịch sử giá)",
+      "url": "https://vnstocks.com",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "vnstock (KBS)",
+      "url": "https://vnstocks.com",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "vnfinancialdata (Hugging Face)",
+      "url": "https://huggingface.co/datasets/thanhnp-uel/vietnam-listed-companies-financial-statements",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "vnstock/KBS",
+      "url": "https://vnstocks.com/docs/vnstock/tra-cuu-thong-tin-tham-chieu-reference",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-chot-quyen-chia-co-tuc-dot-12026-bang-tien-mat-ty-le-10-post398072.html",
+      "date": "2026-09-22"
+    },
+    {
+      "name": "Vietstock via vnstock/KBS",
+      "url": "https://vietstock.vn/2026/09/dgw-bao-cao-tien-do-su-dung-so-tien-thu-duoc-tu-dot-phat-hanh-esop-764-1493080.htm",
+      "date": "2026-09-16"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-cong-ty-lien-quan-chu-tich-doan-hong-viet-mua-vao-2-trieu-co-phieu-post397309.html",
+      "date": "2026-09-10"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-muon-tra-co-tuc-nam-2026-voi-ty-le-30-post396587.html",
+      "date": "2026-08-27"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/co-dong-lon-cua-digiworld-dgw-dang-ky-mua-vao-2-trieu-co-phieu-post395504.html",
+      "date": "2026-08-08"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-dang-dau-tu-3005-ty-dong-vao-co-phieu-kbc-va-hpg-post394927.html",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/ngay-sau-dhcd-digiworld-dgw-chot-quyen-chia-co-tuc-10-bang-tien-mat-post389574.html",
+      "date": "2026-04-27"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn/tin-tuc/t%C3%B4n-vinh-20-n%C4%83m-rog-kh%E1%BA%B3ng-%C4%91%E1%BB%8Bnh-v%E1%BB%8B-th%E1%BA%BF-%C4%91%E1%BB%91i-t%C3%A1c-chi%E1%BA%BFn-l%C6%B0%E1%BB%A3c-c%E1%BB%A7a-digiworld",
+      "date": null
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn/tin-tuc/digiworld-v%C3%A0-chi%E1%BA%BFn-l%C6%B0%E1%BB%A3c-%C4%91%E1%BB%93ng-h%C3%A0nh-%C4%91%E1%BA%A1i-l%C3%BD-n%C3%A2ng-cao-n%C4%83ng-l%E1%BB%B1c-s%E1%BB%91-trong-gi%C3%A1o-d%E1%BB%A5c",
+      "date": null
+    }
+  ],
+  "pdf_path": "D:\\PyCharm 2024.2.3\\code python\\hethongphantichchungkhoan\\reports\\DGW_2026-10-12_xuat_2026-10-12_11-12-21.pdf",
+  "rating": "Có cơ hội",
+  "risk_profile": "balanced",
+  "demo": false
+}

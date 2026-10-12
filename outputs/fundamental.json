@@ -1,0 +1,269 @@
+{
+  "ticker": "DGW",
+  "as_of": "2026-10-12",
+  "generated_at": "2026-10-12T11:12:09",
+  "latest_period": "2025",
+  "sector": "Bán lẻ",
+  "valuation_ref": {
+    "pe": {
+      "p25": 13.0,
+      "median": 16.5,
+      "p75": 21.0
+    },
+    "pb": {
+      "p25": 2.2,
+      "median": 3.0,
+      "p75": 4.0
+    },
+    "source": "Bảng giả định nội bộ của ứng dụng - nhóm Bán lẻ",
+    "reference_type": "internal_assumption",
+    "note": "Các mức thấp/cơ sở/cao là giả định của mô hình, chưa phải phân vị thống kê từ doanh nghiệp cùng ngành."
+  },
+  "financials_table": [
+    {
+      "year": "2026 (TTM)",
+      "revenue": 28173431952000.0,
+      "gross_profit": null,
+      "operating_profit": null,
+      "net_profit": 745440742000.0,
+      "total_assets": 11259354886919.0,
+      "equity": 3472366359545.0,
+      "eps": 4273,
+      "bvps": 15594,
+      "roe": 0.1598,
+      "roa": 0.0493,
+      "net_margin": 0.0265,
+      "debt_to_equity": 0.022426
+    },
+    {
+      "year": "2025",
+      "revenue": 26631545770247.0,
+      "gross_profit": 2310995057427.0,
+      "operating_profit": 667779538129.0,
+      "net_profit": 554897159618.0,
+      "total_assets": 11259354886919.0,
+      "equity": 3472366359545.0,
+      "eps": 2492,
+      "bvps": 15594,
+      "roe": 0.1598,
+      "roa": 0.0493,
+      "net_margin": 0.0208,
+      "debt_to_equity": 0.022426
+    },
+    {
+      "year": "2024",
+      "revenue": 22078832142166.0,
+      "gross_profit": 2055483405899.0,
+      "operating_profit": 556488874659.0,
+      "net_profit": 448547310254.0,
+      "total_assets": 8499324394371.0,
+      "equity": 3011998769288.0,
+      "eps": 2003,
+      "bvps": 13450,
+      "roe": 0.1489,
+      "roa": 0.0528,
+      "net_margin": 0.0203,
+      "debt_to_equity": 0.018218
+    },
+    {
+      "year": "2023",
+      "revenue": 18817475347721.0,
+      "gross_profit": 1559495523559.0,
+      "operating_profit": 469337679478.0,
+      "net_profit": 362591134271.0,
+      "total_assets": 7459032967112.0,
+      "equity": 2626850436290.0,
+      "eps": 1655,
+      "bvps": 11990,
+      "roe": 0.138,
+      "roa": 0.0486,
+      "net_margin": 0.0193,
+      "debt_to_equity": 0.018395
+    },
+    {
+      "year": "2022",
+      "revenue": 22028134929534.0,
+      "gross_profit": 1663096393471.0,
+      "operating_profit": 868057505984.0,
+      "net_profit": 683602346791.0,
+      "total_assets": 6355421123548.0,
+      "equity": 2423281733277.0,
+      "eps": 4219,
+      "bvps": 14956,
+      "roe": 0.2821,
+      "roa": 0.1076,
+      "net_margin": 0.031,
+      "debt_to_equity": 0.016227
+    },
+    {
+      "year": "2021",
+      "revenue": 20922813468779.0,
+      "gross_profit": 1507994168503.0,
+      "operating_profit": 821392399676.0,
+      "net_profit": 654898651616.0,
+      "total_assets": 6544822568016.0,
+      "equity": 1781284667382.0,
+      "eps": 4157,
+      "bvps": 11307,
+      "roe": 0.3677,
+      "roa": 0.1001,
+      "net_margin": 0.0313,
+      "debt_to_equity": 0.026742
+    }
+  ],
+  "field_sources": {
+    "2021": {
+      "income_year.revenue": "vnfinancialdata",
+      "income_year.net_profit": "vnfinancialdata",
+      "income_year.gross_profit": "vnfinancialdata",
+      "income_year.operating_profit": "vnfinancialdata",
+      "income_year.eps": "vnfinancialdata",
+      "balance_year.total_assets": "vnfinancialdata",
+      "balance_year.equity": "vnfinancialdata",
+      "balance_year.liabilities": "vnfinancialdata",
+      "ratio_year.eps": "vnfinancialdata",
+      "ratio_year.bvps": "vnfinancialdata",
+      "ratio_year.roe": "vnfinancialdata",
+      "ratio_year.roa": "vnfinancialdata",
+      "ratio_year.net_margin": "vnfinancialdata",
+      "ratio_year.debt_to_equity": "vnfinancialdata"
+    },
+    "2022": {
+      "income_year.revenue": "vnfinancialdata",
+      "income_year.net_profit": "vnfinancialdata",
+      "income_year.gross_profit": "vnfinancialdata",
+      "income_year.operating_profit": "vnfinancialdata",
+      "income_year.eps": "vnfinancialdata",
+      "balance_year.total_assets": "vnfinancialdata",
+      "balance_year.equity": "vnfinancialdata",
+      "balance_year.liabilities": "vnfinancialdata",
+      "ratio_year.eps": "vnfinancialdata",
+      "ratio_year.bvps": "vnfinancialdata",
+      "ratio_year.roe": "vnfinancialdata",
+      "ratio_year.roa": "vnfinancialdata",
+      "ratio_year.net_margin": "vnfinancialdata",
+      "ratio_year.debt_to_equity": "vnfinancialdata"
+    },
+    "2023": {
+      "income_year.revenue": "vnfinancialdata",
+      "income_year.net_profit": "vnfinancialdata",
+      "income_year.gross_profit": "vnfinancialdata",
+      "income_year.operating_profit": "vnfinancialdata",
+      "income_year.eps": "vnfinancialdata",
+      "balance_year.total_assets": "vnfinancialdata",
+      "balance_year.equity": "vnfinancialdata",
+      "balance_year.liabilities": "vnfinancialdata",
+      "ratio_year.eps": "vnfinancialdata",
+      "ratio_year.bvps": "vnfinancialdata",
+      "ratio_year.roe": "vnfinancialdata",
+      "ratio_year.roa": "vnfinancialdata",
+      "ratio_year.net_margin": "vnfinancialdata",
+      "ratio_year.debt_to_equity": "vnfinancialdata"
+    },
+    "2024": {
+      "income_year.revenue": "vnfinancialdata",
+      "income_year.net_profit": "vnfinancialdata",
+      "income_year.gross_profit": "vnfinancialdata",
+      "income_year.operating_profit": "vnfinancialdata",
+      "income_year.eps": "vnfinancialdata",
+      "balance_year.total_assets": "vnfinancialdata",
+      "balance_year.equity": "vnfinancialdata",
+      "balance_year.liabilities": "vnfinancialdata",
+      "ratio_year.eps": "vnfinancialdata",
+      "ratio_year.bvps": "vnfinancialdata",
+      "ratio_year.roe": "vnfinancialdata",
+      "ratio_year.roa": "vnfinancialdata",
+      "ratio_year.net_margin": "vnfinancialdata",
+      "ratio_year.debt_to_equity": "vnfinancialdata"
+    },
+    "2025": {
+      "income_year.revenue": "vnfinancialdata",
+      "income_year.net_profit": "vnfinancialdata",
+      "income_year.gross_profit": "vnfinancialdata",
+      "income_year.operating_profit": "vnfinancialdata",
+      "income_year.eps": "vnfinancialdata",
+      "balance_year.total_assets": "vnfinancialdata",
+      "balance_year.equity": "vnfinancialdata",
+      "balance_year.liabilities": "vnfinancialdata",
+      "ratio_year.eps": "vnfinancialdata",
+      "ratio_year.bvps": "vnfinancialdata",
+      "ratio_year.roe": "vnfinancialdata",
+      "ratio_year.roa": "vnfinancialdata",
+      "ratio_year.net_margin": "vnfinancialdata",
+      "ratio_year.debt_to_equity": "vnfinancialdata"
+    }
+  },
+  "warnings": [],
+  "unit": "VND",
+  "basis": "Báo cáo theo năm; cột TTM dùng doanh thu và lợi nhuận của 12 tháng gần nhất. Tài sản, vốn chủ và các chỉ số còn lại trong cột TTM lấy từ kỳ 2025, trừ biên lợi nhuận ròng tính từ doanh thu và lợi nhuận TTM.",
+  "growth": {
+    "revenue_growth_yoy": 0.206203,
+    "revenue_yoy": 0.206203,
+    "net_income_growth_yoy": 0.237098,
+    "net_income_yoy": 0.237098,
+    "revenue_growth_qoq": -0.075031,
+    "revenue_qoq": -0.075031,
+    "revenue_qoq_or_recent": -0.075031,
+    "net_income_qoq_or_recent": 0.042873,
+    "eps_cagr_3y": -0.161
+  },
+  "margins": {
+    "gross_margin": 0.086777,
+    "operating_margin": 0.025075,
+    "net_margin": 0.020836
+  },
+  "profitability": {
+    "roe": 0.1598,
+    "roa": 0.0493,
+    "roic": 0.2549,
+    "net_margin": 0.020836,
+    "gross_margin": 0.086777,
+    "operating_margin": 0.025075
+  },
+  "leverage": {
+    "debt_to_equity": 0.022426,
+    "debt_to_assets": 0.2575,
+    "current_ratio": 1.38,
+    "quick_ratio": 0.81
+  },
+  "banking": null,
+  "cash_flow": {
+    "operating_cash_flow": -1110273062000.0,
+    "operating_cash_flow_unit": "VND",
+    "free_cash_flow": -1118311800000.0,
+    "free_cash_flow_unit": "VND",
+    "fcf_per_share": -5022.25,
+    "fcf_per_share_unit": "VND/cổ phiếu"
+  },
+  "ttm": {
+    "ttm_revenue": 28173431952000.0,
+    "ttm_revenue_unit": "VND",
+    "ttm_net_income": 745440742000.0,
+    "ttm_net_income_unit": "VND",
+    "ttm_eps": 4273.0,
+    "ttm_eps_unit": "VND/cổ phiếu"
+  },
+  "per_share": {
+    "eps": 2492,
+    "eps_unit": "VND/cổ phiếu",
+    "eps_ttm": 4273,
+    "eps_avg_5y": 2905,
+    "bvps": 15594.0,
+    "bvps_unit": "VND/cổ phiếu",
+    "dividend_per_share": 2000.0,
+    "dps": 2000.0,
+    "dividend_per_share_unit": "VND/cổ phiếu"
+  },
+  "sources": [
+    {
+      "name": "vnstock (KBS)",
+      "url": "https://vnstocks.com",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "vnfinancialdata (Hugging Face)",
+      "url": "https://huggingface.co/datasets/thanhnp-uel/vietnam-listed-companies-financial-statements",
+      "date": "2026-10-12"
+    }
+  ]
+}

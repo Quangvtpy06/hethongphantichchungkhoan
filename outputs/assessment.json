@@ -1,0 +1,236 @@
+{
+  "ticker": "DGW",
+  "as_of": "2026-10-12",
+  "unit": "VND/cổ phiếu",
+  "risk_profile": "balanced",
+  "sector": "Bán lẻ",
+  "sector_group": "Bán lẻ",
+  "price": {
+    "close": 47800,
+    "date": "2026-10-12",
+    "adjusted": true
+  },
+  "rating": "Có cơ hội",
+  "rating_before_adjustment": "Có cơ hội",
+  "confidence": "Trung bình",
+  "target_price": 59958,
+  "upside": 0.2543,
+  "scenarios": {
+    "bear": {
+      "price": 41399,
+      "upside": -0.1339,
+      "probability": 0.25,
+      "eps_growth": -0.2
+    },
+    "base": {
+      "price": 58452,
+      "upside": 0.2229,
+      "probability": 0.5,
+      "eps_growth": -0.1
+    },
+    "bull": {
+      "price": 81526,
+      "upside": 0.7056,
+      "probability": 0.25,
+      "eps_growth": 0.0
+    }
+  },
+  "valuation_level": "Cấp 1: bội số ngành",
+  "methods": [
+    {
+      "name": "P/B",
+      "kind": "PB",
+      "weight": 0.3,
+      "basis_label": "BVPS hiện tại (VND/cp)",
+      "basis_value": 15594.0,
+      "multiples": {
+        "p25": 2.2,
+        "median": 3.0,
+        "p75": 4.0
+      },
+      "values": {
+        "bear": 34307,
+        "base": 46782,
+        "bull": 62376
+      }
+    },
+    {
+      "name": "P/E",
+      "kind": "PE",
+      "weight": 0.7,
+      "basis_label": "EPS TTM (VND/cp)",
+      "basis_value": 4273,
+      "multiples": {
+        "p25": 13.0,
+        "median": 16.5,
+        "p75": 21.0
+      },
+      "growth": {
+        "bear": -0.2,
+        "base": -0.1,
+        "bull": 0.0
+      },
+      "values": {
+        "bear": 44439,
+        "base": 63454,
+        "bull": 89733
+      }
+    }
+  ],
+  "sensitivity": [
+    {
+      "basis_change": -0.1,
+      "multiple_case": "p25",
+      "target_price": 40759,
+      "upside": -0.1473
+    },
+    {
+      "basis_change": -0.1,
+      "multiple_case": "median",
+      "target_price": 52607,
+      "upside": 0.1006
+    },
+    {
+      "basis_change": -0.1,
+      "multiple_case": "p75",
+      "target_price": 67720,
+      "upside": 0.4167
+    },
+    {
+      "basis_change": 0.0,
+      "multiple_case": "p25",
+      "target_price": 45288,
+      "upside": -0.0526
+    },
+    {
+      "basis_change": 0.0,
+      "multiple_case": "median",
+      "target_price": 58452,
+      "upside": 0.2229
+    },
+    {
+      "basis_change": 0.0,
+      "multiple_case": "p75",
+      "target_price": 75245,
+      "upside": 0.5742
+    },
+    {
+      "basis_change": 0.1,
+      "multiple_case": "p25",
+      "target_price": 49817,
+      "upside": 0.0422
+    },
+    {
+      "basis_change": 0.1,
+      "multiple_case": "median",
+      "target_price": 64298,
+      "upside": 0.3451
+    },
+    {
+      "basis_change": 0.1,
+      "multiple_case": "p75",
+      "target_price": 82769,
+      "upside": 0.7316
+    }
+  ],
+  "downgrade_triggers": [],
+  "reasons": [
+    "Định giá tham khảo: Giá mục tiêu là 59.958 VND (tổng hợp từ 3 kịch bản: Thận trọng 25%, Cơ sở 50% và Tích cực 25%). So với thị giá đóng cửa hiện tại 47.800 VND, cổ phiếu có mức tăng trưởng kỳ vọng (Upside) là 25.4% (Phương pháp: Cấp 1: bội số ngành).",
+    "🧭 Thang bậc đánh giá theo khẩu vị 'Cân bằng': Hệ thống phân định 3 bậc khuyến nghị rõ ràng: (1) 'Có cơ hội' (tiềm năng sinh lời hấp dẫn, upside >= +20.0%); (2) 'Cần theo dõi' (định giá hợp lý, biên an toàn vừa phải, upside từ 0% đến dưới +20.0%); (3) 'Chưa hấp dẫn' (thị giá cao hơn giá trị thực hoặc tiềm ẩn rủi ro giảm giá, upside < 0%).",
+    "P/B hiện tại đạt 3.07 lần, cao hơn so với hệ số tham chiếu của mô hình là 3.00 lần (đóng góp 30% vào kết quả).",
+    "P/E hiện tại đạt 11.2 lần, thấp hơn (định giá rẻ hơn) so với hệ số tham chiếu của mô hình là 16.5 lần (đóng góp 70% vào kết quả).",
+    "💼 Hiệu quả sinh lời: Tỷ suất sinh lời trên vốn chủ sở hữu (ROE) đạt 16.0%, phản ánh năng lực sinh lời của doanh nghiệp.",
+    "📈 Tăng trưởng kinh doanh: Lợi nhuận sau thuế tăng trưởng 23.7% so với cùng kỳ năm trước.",
+    "📉 Xu hướng vận động giá: Đang trong xu hướng tăng giá tích cực; vùng hỗ trợ kỹ thuật tại 42.600 VND và kháng cự tại 48.900 VND.",
+    "🚀 Động lực tăng trưởng: (ĐTCK) Ngày 6/10 tới đây, CTCP Thế giới Số (Digiworld, mã DGW - sàn HOSE) sẽ chốt danh sách cổ đông tạm ứng cổ tức đợt 1/2026 với tỷ lệ 10% ...",
+    "🚀 Động lực tăng trưởng: (ĐTCK) CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) công bố tài liệu lấy ý kiến cổ đông bằng văn bản, thời gian lấy ý kiến tới trước 12 g...",
+    "🚀 Động lực tăng trưởng: (ĐTCK) CTCP Thế giới số (Digiworld, mã DGW - sàn HOSE) ghi nhận lãi 309,05 tỷ đồng trong quý II, luỹ kế nửa đầu năm 2026 lãi 510,93 tỷ đồng,..."
+  ],
+  "risks": [
+    "[Trung bình] Trước tình hình nhiều trường học đang được đầu tư hệ thống phòng học thông minh nhưng vẫn gặp khó khăn trong việc khai thác hiệu quả, Digiworld lựa chọn một hướng đi khác: Không chỉ mang đến các thiết bị công nghệ, mà còn đồng hành cùng nhà trường và các đại lý trong suốt quá trình chuyển đổi số. (Website doanh nghiệp, 2026-10-12)",
+    "[Trung bình] Yếu tố cần theo dõi (không phải sự kiện đã xác nhận): Sức mua yếu, hàng tồn kho và cạnh tranh giá có thể làm giảm lợi nhuận. (Khung rà soát nội bộ theo ngành: Bán lẻ, 2026-10-12)",
+    "[Trung bình] Định giá sử dụng hệ số giả định nội bộ; kết quả có thể thay đổi đáng kể khi thay hệ số bằng thống kê thị trường đã xác minh. (Giả định mô hình định giá, 2026-10-12)",
+    "Kịch bản bear thấp hơn giá hiện tại 13.4%."
+  ],
+  "data_gaps": [],
+  "assumptions": [
+    "Hệ số tham chiếu là giả định nội bộ, chưa phải thống kê ngành đã xác minh.",
+    "Giá đóng cửa là giá điều chỉnh; EPS và ROE tính theo TTM (trừ P/E ngành chu kỳ dùng EPS bình quân 5 năm).",
+    "Nhóm định giá: Bán lẻ; trọng số P/B/P/E = 30%/70% (tự dồn 100% vào phương pháp còn lại nếu một chỉ số âm/lỗi).",
+    "Tăng trưởng EPS 1 năm: bear -20.0%, base -10.0%, bull 0.0% (cơ sở lấy từ eps_cagr_3y, chặn trong [-10%, +15%]; bear/bull = cơ sở -/+ 10 điểm %). P/B áp dụng trên BVPS hiện tại.",
+    "Bear/Base/Bull dùng bội số P25/Median/P75; xác suất theo hồ sơ rủi ro (balanced): 25%/50%/25%."
+  ],
+  "disclaimer": "Kết quả do hệ thống tự động tạo từ dữ liệu công khai, chỉ mang tính tham khảo, không phải khuyến nghị mua/bán. Nhà đầu tư tự chịu trách nhiệm với quyết định của mình.",
+  "sources": [
+    {
+      "name": "vnstock (KBS)",
+      "url": "https://vnstocks.com",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "vnfinancialdata (Hugging Face)",
+      "url": "https://huggingface.co/datasets/thanhnp-uel/vietnam-listed-companies-financial-statements",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "vnstock (Lịch sử giá)",
+      "url": "https://vnstocks.com",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "vnstock/KBS",
+      "url": "https://vnstocks.com/docs/vnstock/tra-cuu-thong-tin-tham-chieu-reference",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn",
+      "date": "2026-10-12"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-chot-quyen-chia-co-tuc-dot-12026-bang-tien-mat-ty-le-10-post398072.html",
+      "date": "2026-09-22"
+    },
+    {
+      "name": "Vietstock via vnstock/KBS",
+      "url": "https://vietstock.vn/2026/09/dgw-bao-cao-tien-do-su-dung-so-tien-thu-duoc-tu-dot-phat-hanh-esop-764-1493080.htm",
+      "date": "2026-09-16"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-cong-ty-lien-quan-chu-tich-doan-hong-viet-mua-vao-2-trieu-co-phieu-post397309.html",
+      "date": "2026-09-10"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-muon-tra-co-tuc-nam-2026-voi-ty-le-30-post396587.html",
+      "date": "2026-08-27"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/co-dong-lon-cua-digiworld-dgw-dang-ky-mua-vao-2-trieu-co-phieu-post395504.html",
+      "date": "2026-08-08"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/digiworld-dgw-dang-dau-tu-3005-ty-dong-vao-co-phieu-kbc-va-hpg-post394927.html",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "Tin Nhanh Chứng Khoán",
+      "url": "https://www.tinnhanhchungkhoan.vn/ngay-sau-dhcd-digiworld-dgw-chot-quyen-chia-co-tuc-10-bang-tien-mat-post389574.html",
+      "date": "2026-04-27"
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn/tin-tuc/t%C3%B4n-vinh-20-n%C4%83m-rog-kh%E1%BA%B3ng-%C4%91%E1%BB%8Bnh-v%E1%BB%8B-th%E1%BA%BF-%C4%91%E1%BB%91i-t%C3%A1c-chi%E1%BA%BFn-l%C6%B0%E1%BB%A3c-c%E1%BB%A7a-digiworld",
+      "date": null
+    },
+    {
+      "name": "Website doanh nghiệp",
+      "url": "https://digiworld.com.vn/tin-tuc/digiworld-v%C3%A0-chi%E1%BA%BFn-l%C6%B0%E1%BB%A3c-%C4%91%E1%BB%93ng-h%C3%A0nh-%C4%91%E1%BA%A1i-l%C3%BD-n%C3%A2ng-cao-n%C4%83ng-l%E1%BB%B1c-s%E1%BB%91-trong-gi%C3%A1o-d%E1%BB%A5c",
+      "date": null
+    }
+  ]
+}

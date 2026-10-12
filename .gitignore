@@ -4,6 +4,8 @@ __pycache__/
 .vscode/
 outputs/charts/
 .env
+outputs/.analysis_cache/
+outputs/.news_article_cache/
 .idea/
 tmp/
 output/

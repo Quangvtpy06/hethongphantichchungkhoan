@@ -18,6 +18,8 @@ import sys
 import json
 import logging
 import shutil
+from time import perf_counter
+from analysis_cache import load_or_fetch
 from datetime import datetime, date
 from pathlib import Path
 from typing import Any, Callable, Dict, Optional
@@ -325,7 +327,8 @@ def run_pipeline(
     output_dir: str = "outputs",
     reports_dir: str = "reports",
     progress_callback: Optional[Callable[[int, str], None]] = None,
-    use_cache_fallback: bool = True
+    use_cache_fallback: bool = True,
+    refresh_data: bool = False,
 ) -> Dict[str, Any]:
     """
     Chạy toàn bộ quy trình phân tích:
@@ -339,6 +342,7 @@ def run_pipeline(
         reports_dir: Thư mục chứa PDF xuất ra
         progress_callback: Hàm nhận callback (tiến độ %, thông điệp bước)
         use_cache_fallback: Nếu True, cho phép dùng dữ liệu mẫu / cache nếu API gặp sự cố
+        refresh_data: Bỏ qua cache cơ bản (1 giờ) và tin tức (15 phút).
         
     Returns:
         Dict tổng hợp trạng thái, dữ liệu 4 module, đánh giá và đường dẫn PDF.
@@ -351,8 +355,22 @@ def run_pipeline(
     rep_path.mkdir(parents=True, exist_ok=True)
     
     errors = []
+    started = perf_counter()
+    step_started = started
+    active_step = None
+    timings = {}
+    cache_hits = {}
+    step_names = {5: "initialization", 15: "technical", 35: "fundamental",
+                  55: "company_news", 75: "valuation", 90: "pdf"}
     
     def _notify(pct: int, msg: str):
+        nonlocal step_started, active_step
+        now = perf_counter()
+        if active_step is not None:
+            timings[active_step] = round(now - step_started, 3)
+            log.info("Thời gian %s: %.3f giây", active_step, timings[active_step])
+        active_step = step_names.get(pct)
+        step_started = now
         log.info(f"[{pct}%] {msg}")
         if progress_callback:
             try:
@@ -379,7 +397,10 @@ def run_pipeline(
     _notify(35, f"Đang thu thập Báo cáo tài chính & chỉ số cơ bản ({normalized})...")
     fund_data = {}
     try:
-        fund_data = fundamental.run(normalized, as_of_str)
+        fund_data, cache_hits["fundamental"] = load_or_fetch(
+            out_path / ".analysis_cache", "fundamental", normalized, as_of_str, 3600,
+            lambda: fundamental.run(normalized, as_of_str), refresh=refresh_data,
+        )
         if fund_data.get("error"):
             errors.append(f"Cơ bản: {fund_data['error']}")
         # Bổ sung sector & định giá tham chiếu
@@ -397,7 +418,11 @@ def run_pipeline(
     _notify(55, f"Đang quét tin tức đa nguồn & rà soát rủi ro ({normalized})...")
     news_data = {}
     try:
-        news_data = company_news.run(normalized, as_of_str, output_dir=str(out_path))
+        news_data, cache_hits["company_news"] = load_or_fetch(
+            out_path / ".analysis_cache", "company_news", normalized, as_of_str, 900,
+            lambda: company_news.run(normalized, as_of_str, output_dir=str(out_path)),
+            refresh=refresh_data,
+        )
         if news_data.get("error"):
             errors.append(f"Tin tức: {news_data['error']}")
         # Bổ sung hồ sơ tóm tắt, cơ cấu doanh thu, động lực và cờ cảnh báo rủi ro đa nhân tố
@@ -490,12 +515,16 @@ def run_pipeline(
         pdf_res = {"ticker": normalized, "as_of": as_of_str, "error": err_msg}
 
     _notify(100, f"Hoàn tất phân tích {normalized} thành công!")
+    timings["total"] = round(perf_counter() - started, 3)
+    log.info("Tổng thời gian: %.3f giây; cache: %s", timings["total"], cache_hits)
 
     # Tổng kết Manifest
     pipeline_result = {
         "ticker": normalized,
         "as_of": as_of_str,
         "risk_profile": risk_profile,
+        "timings_seconds": timings,
+        "cache_hits": cache_hits,
         "generated_at": datetime.now().isoformat(),
         "status": "success" if pdf_path and not errors else ("partial" if pdf_path else "error"),
         "pdf_path": pdf_path,

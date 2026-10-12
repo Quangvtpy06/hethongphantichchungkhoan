@@ -346,12 +346,14 @@ def _fetch_vnfinancialdata(ticker: str) -> Optional[pd.DataFrame]:
         import vnfinancialdata as vnf
         os.environ["HUGGINGFACE_TOKEN"] = HF_TOKEN
         os.environ["HF_TOKEN"] = HF_TOKEN
-        for ex in ["HOSE", "HNX", "UPCOM"]:
+        # vnfinancialdata chỉ hỗ trợ HSX và HNX (không nhận HOSE/UPCOM).
+        for ex in ["HSX", "HNX"]:
             try:
                 df = vnf.load(exchange=ex, statement="income_statement", ticker=ticker)
                 if df is not None and not df.empty:
                     return df
-            except Exception:
+            except Exception as exc:
+                log.warning("Không tải được dữ liệu bổ sung sàn %s (%s)", ex, type(exc).__name__)
                 continue
         return None
     except Exception as e:
@@ -766,6 +768,52 @@ BASELINE_2021: Dict[str, Dict[str, Any]] = {
 }
 
 
+def _first_number(*values):
+    """Giữ cả số 0, chỉ bỏ giá trị thiếu hoặc không hữu hạn."""
+    for value in values:
+        number = _safe_float(value)
+        if number is not None and pd.notna(number) and abs(number) != float("inf"):
+            return number
+    return None
+
+
+def _merge_annual_frames(fin_data, supplemental, as_of_date):
+    """Ưu tiên từng chỉ tiêu HF, bù từ vnstock cùng năm; không ghép khác kỳ."""
+    mappings = {
+        "income_year": {"revenue": REVENUE_KEYS, "net_profit": NET_PROFIT_KEYS,
+                        "gross_profit": GROSS_PROFIT_KEYS, "operating_profit": OPERATING_PROFIT_KEYS,
+                        "eps": EPS_KEYS},
+        "balance_year": {"total_assets": TOTAL_ASSETS_KEYS, "equity": EQUITY_KEYS,
+                         "liabilities": ["total_liabilities", "no_phai_tra", "tong_no_phai_tra"]},
+        "ratio_year": {"eps": ["trailing_eps"], "bvps": ["book_value_per_share_bvps", "book_value_per_share"],
+                       "roe": ["roe"], "roa": ["roa"], "net_margin": ["net_margin"],
+                       "debt_to_equity": ["debt_to_equity"]},
+    }
+    result = dict(fin_data)
+    provenance = {}
+    for name, mapping in mappings.items():
+        original = fin_data.get(name)
+        frame = original.copy() if original is not None else pd.DataFrame(columns=["item_id"])
+        years = set(_get_sorted_periods(original, as_of_date=as_of_date))
+        years.update(y for y in supplemental if str(y).isdigit() and int(y) <= as_of_date.year)
+        rows = []
+        for metric, aliases in mapping.items():
+            row = {"item_id": aliases[0]}
+            for year in sorted(years):
+                preferred = _first_number(supplemental.get(year, {}).get(metric))
+                fallback = _first_number(_extract_metric(original, aliases, year))
+                row[year] = preferred if preferred is not None else fallback
+                if row[year] is not None:
+                    provenance.setdefault(year, {})[f"{name}.{metric}"] = (
+                        "vnfinancialdata" if preferred is not None else "vnstock")
+            # Bỏ các alias cũ để các hàm tính chỉ số cùng đọc giá trị đã ghép.
+            if "item_id" in frame:
+                frame = frame[~frame["item_id"].isin(aliases)]
+            rows.append(row)
+        result[name] = pd.concat([pd.DataFrame(rows), frame], ignore_index=True)
+    return result, provenance
+
+
 def _fetch_vnfinancialdata_table(ticker: str) -> Dict[str, Dict[str, Any]]:
     """
     Tải BCTC các năm 2021-2025 từ vnfinancialdata (Hugging Face).
@@ -774,55 +822,53 @@ def _fetch_vnfinancialdata_table(ticker: str) -> Dict[str, Dict[str, Any]]:
     res = {}
     try:
         import vnfinancialdata as vnf
-        for ex in ["HSX", "HNX", "UPCOM"]:
+        for ex in ["HSX", "HNX"]:
             try:
-                df_inc = vnf.get(ticker=ticker, statement="income_statement", exchange=ex, start=2021, end=2025)
-                df_bs = vnf.get(ticker=ticker, statement="balance_sheet", exchange=ex, start=2021, end=2025)
-                if df_inc is not None and not df_inc.empty and df_bs is not None and not df_bs.empty:
-                    years = sorted(list(set(df_inc["year"].unique()) & set(df_bs["year"].unique())))
+                frames = []
+                for statement in ("income_statement", "balance_sheet"):
+                    try:
+                        frame = vnf.get(ticker=ticker, statement=statement, exchange=ex, start=2021, end=2025)
+                        frames.append(frame if frame is not None else pd.DataFrame())
+                    except Exception as exc:
+                        log.warning("vnfinancialdata %s/%s: %s", ex, statement, type(exc).__name__)
+                        frames.append(pd.DataFrame())
+                df_inc, df_bs = frames
+                if not df_inc.empty or not df_bs.empty:
+                    years = sorted(set(df_inc.get("year", [])) | set(df_bs.get("year", [])))
                     for y in years:
-                        sub_inc = df_inc[df_inc["year"] == y].set_index("item_code")["value"].to_dict()
-                        sub_bs = df_bs[df_bs["year"] == y].set_index("item_code")["value"].to_dict()
+                        sub_inc = df_inc[df_inc["year"] == y].set_index("item_code")["value"].to_dict() if not df_inc.empty else {}
+                        sub_bs = df_bs[df_bs["year"] == y].set_index("item_code")["value"].to_dict() if not df_bs.empty else {}
 
                         # Doanh thu: hỗ trợ phi tài chính, chứng khoán, ngân hàng
                         rev = (
-                            sub_inc.get("is_doanh_so_thuan") or sub_inc.get("is_doanh_so") or
-                            sub_inc.get("is_thu_nhap_lai_thuan") or sub_inc.get("is_tong_thu_nhap_hoat_dong") or
-                            sub_inc.get("is_doanh_thu_hoat_dong") or sub_inc.get("is_doanh_thu_thuan_ve_hoat_dong_kinh_doanh") or
-                            sub_inc.get("is_doanh_thu_thuan")
+                            _first_number(sub_inc.get("is_doanh_so_thuan"), sub_inc.get("is_doanh_so"), sub_inc.get("is_thu_nhap_lai_thuan"), sub_inc.get("is_tong_thu_nhap_hoat_dong"), sub_inc.get("is_doanh_thu_hoat_dong"), sub_inc.get("is_doanh_thu_thuan_ve_hoat_dong_kinh_doanh"), sub_inc.get("is_doanh_thu_thuan"))
                         )
                         gp = (
-                            sub_inc.get("is_lai_gop") or sub_inc.get("is_loi_nhuan_gop") or
-                            sub_inc.get("is_thu_nhap_lai_thuan") or sub_inc.get("is_tong_thu_nhap_hoat_dong") or
-                            sub_inc.get("is_ket_qua_hoat_dong")
+                            _first_number(sub_inc.get("is_lai_gop"), sub_inc.get("is_loi_nhuan_gop"), sub_inc.get("is_thu_nhap_lai_thuan"), sub_inc.get("is_tong_thu_nhap_hoat_dong"), sub_inc.get("is_ket_qua_hoat_dong"))
                         )
                         op = (
-                            sub_inc.get("is_lai_lo_tu_hoat_dong_kinh_doanh") or sub_inc.get("is_ebit") or
-                            sub_inc.get("is_ln_thuan_tu_hoat_dong_kinh_doanh_truoc_cf_du_phong_rui_ro_tin_dung") or
-                            sub_inc.get("is_tong_loi_nhuan_truoc_thue") or sub_inc.get("is_ket_qua_hoat_dong")
+                            _first_number(sub_inc.get("is_lai_lo_tu_hoat_dong_kinh_doanh"), sub_inc.get("is_ebit"), sub_inc.get("is_ln_thuan_tu_hoat_dong_kinh_doanh_truoc_cf_du_phong_rui_ro_tin_dung"), sub_inc.get("is_tong_loi_nhuan_truoc_thue"), sub_inc.get("is_ket_qua_hoat_dong"))
                         )
                         ni = (
-                            sub_inc.get("is_loi_nhuan_sau_thue") or sub_inc.get("is_lai_lo_thuan_sau_thue") or
-                            sub_inc.get("is_co_dong_cua_cong_ty_me") or sub_inc.get("is_loi_nhuan_cua_co_dong_cua_cong_ty_me") or
-                            sub_inc.get("is_loi_nhuan_sau_thue_phan_bo_cho_chu_so_huu") or sub_inc.get("is_loi_nhuan_ke_toan_sau_thue")
+                            _first_number(sub_inc.get("is_loi_nhuan_sau_thue"), sub_inc.get("is_lai_lo_thuan_sau_thue"), sub_inc.get("is_co_dong_cua_cong_ty_me"), sub_inc.get("is_loi_nhuan_cua_co_dong_cua_cong_ty_me"), sub_inc.get("is_loi_nhuan_sau_thue_phan_bo_cho_chu_so_huu"), sub_inc.get("is_loi_nhuan_ke_toan_sau_thue"))
                         )
-                        eps = sub_inc.get("is_lai_co_ban_tren_co_phieu") or sub_inc.get("is_thu_nhap_thuan_tren_co_phieu_pho_thong")
+                        eps = _first_number(sub_inc.get("is_lai_co_ban_tren_co_phieu"), sub_inc.get("is_thu_nhap_thuan_tren_co_phieu_pho_thong"))
 
-                        assets = sub_bs.get("bs_tong_tai_san") or sub_bs.get("bs_tong_cong_tai_san")
+                        assets = _first_number(sub_bs.get("bs_tong_tai_san"), sub_bs.get("bs_tong_cong_tai_san"))
                         equity = None
                         for eq_k, eq_v in sub_bs.items():
                             if eq_k.startswith("bs_von_chu_so_huu") or eq_k in ("bs_tong_von_chu_so_huu", "bs_von_va_cac_quy"):
-                                if eq_v is not None and eq_v > 0:
+                                if _first_number(eq_v) is not None:
                                     equity = eq_v
                                     break
                         if equity is None:
-                            equity = sub_bs.get("bs_von_chu_so_huu_4d280b22") or sub_bs.get("bs_von_chu_so_huu_6cda78ae") or sub_bs.get("bs_von_va_cac_quy")
-                        debt = sub_bs.get("bs_tong_no_phai_tra") or sub_bs.get("bs_no_phai_tra")
+                            equity = _first_number(sub_bs.get("bs_von_chu_so_huu_4d280b22"), sub_bs.get("bs_von_chu_so_huu_6cda78ae"), sub_bs.get("bs_von_va_cac_quy"))
+                        debt = _first_number(sub_bs.get("bs_tong_no_phai_tra"), sub_bs.get("bs_no_phai_tra"))
 
-                        roe = round(ni / equity, 4) if (ni and equity and equity > 0) else None
-                        roa = round(ni / assets, 4) if (ni and assets and assets > 0) else None
-                        net_m = round(ni / rev, 4) if (ni and rev and rev > 0) else None
-                        de = round(debt / equity, 4) if (debt and equity and equity > 0) else None
+                        roe = round(ni / equity, 4) if (ni is not None and equity is not None and equity > 0) else None
+                        roa = round(ni / assets, 4) if (ni is not None and assets is not None and assets > 0) else None
+                        net_m = round(ni / rev, 4) if (ni is not None and rev is not None and rev > 0) else None
+                        de = round(debt / equity, 4) if (debt is not None and equity is not None and equity > 0) else None
 
                         bvps = None
                         if equity and eps and ni and ni > 0 and eps > 0:
@@ -837,7 +883,8 @@ def _fetch_vnfinancialdata_table(ticker: str) -> Dict[str, Dict[str, Any]]:
                             "net_profit": ni,
                             "total_assets": assets,
                             "equity": equity,
-                            "eps": round(eps) if eps else None,
+                            "eps": round(eps) if eps is not None else None,
+                            "liabilities": debt,
                             "bvps": bvps,
                             "roe": roe,
                             "roa": roa,
@@ -860,12 +907,13 @@ def _compute_financials_table(
     year_cols: List[str],
     ttm_data: Optional[Dict[str, Any]] = None,
     per_share_data: Optional[Dict[str, Any]] = None,
-    ticker: str = ""
+    ticker: str = "",
+    vnf_data: Optional[dict] = None,
 ) -> List[Dict[str, Any]]:
     """
     Dựng bảng tổng hợp báo cáo tài chính đa niên kết hợp:
     - 2026: Lấy các quý gần nhất từ vnstock (TTM).
-    - 2021-2025: Lấy từ vnfinancialdata (ưu tiên) kết hợp dự phòng từ vnstock và baseline.
+    - Bảng năm: ưu tiên vnfinancialdata, bù từng chỉ tiêu từ vnstock cùng kỳ.
     """
     table = []
 
@@ -899,14 +947,16 @@ def _compute_financials_table(
         })
 
     # 2. Lấy dữ liệu 2021 - 2025 từ vnfinancialdata
-    vnf_data = _fetch_vnfinancialdata_table(ticker)
+    if vnf_data is None:
+        raw = _fetch_vnfinancialdata_table(ticker)
+        merged, _ = _merge_annual_frames(
+            {"income_year": income_year, "balance_year": balance_year, "ratio_year": ratio_year},
+            raw, date.today())
+        income_year, balance_year, ratio_year = (merged[k] for k in ("income_year", "balance_year", "ratio_year"))
+        year_cols = sorted(set(year_cols) | set(_get_sorted_periods(income_year)) | set(_get_sorted_periods(balance_year)), reverse=True)
 
-    years_needed = ["2025", "2024", "2023", "2022", "2021"]
+    years_needed = sorted(set(year_cols), reverse=True)
     for y in years_needed:
-        # Ưu tiên lấy từ vnfinancialdata
-        if y in vnf_data and (vnf_data[y].get("revenue") is not None or vnf_data[y].get("net_profit") is not None):
-            table.append(vnf_data[y])
-            continue
 
         # Fallback 1: lấy từ vnstock income_year / balance_year
         rev = _extract_metric(income_year, REVENUE_KEYS, y)
@@ -940,28 +990,7 @@ def _compute_financials_table(
         if de_val is None and liab and equity and equity > 0:
             de_val = round(liab / equity, 4)
 
-        # Fallback 2: nếu là 2021 và thiếu từ vnstock, dùng baseline
-        if str(y) == "2021" and rev is None:
-            b21 = BASELINE_2021.get(ticker.upper())
-            if b21:
-                table.append({
-                    "year": "2021",
-                    "revenue": b21.get("revenue"),
-                    "gross_profit": b21.get("gross_profit"),
-                    "operating_profit": b21.get("operating_profit"),
-                    "net_profit": b21.get("net_profit"),
-                    "total_assets": b21.get("total_assets"),
-                    "equity": b21.get("equity"),
-                    "eps": b21.get("eps"),
-                    "bvps": b21.get("bvps"),
-                    "roe": b21.get("roe"),
-                    "roa": b21.get("roa"),
-                    "net_margin": b21.get("net_margin"),
-                    "debt_to_equity": b21.get("debt_to_equity"),
-                })
-                continue
-
-        if rev is not None or ni is not None:
+        if any(value is not None for value in (rev, ni, assets, equity)):
             table.append({
                 "year": str(y),
                 "revenue": rev,
@@ -970,8 +999,8 @@ def _compute_financials_table(
                 "net_profit": ni,
                 "total_assets": assets,
                 "equity": equity,
-                "eps": round(eps_val) if eps_val else None,
-                "bvps": round(bvps_val) if bvps_val else None,
+                "eps": round(eps_val) if eps_val is not None else None,
+                "bvps": round(bvps_val) if bvps_val is not None else None,
                 "roe": roe_val,
                 "roa": roa_val,
                 "net_margin": net_m,
@@ -1014,19 +1043,28 @@ def run(ticker: str, as_of: str) -> dict:
             "error": f"Định dạng ngày as_of không hợp lệ: '{as_of}'. Vui lòng dùng định dạng YYYY-MM-DD."
         })
 
-    # 2. Tải dữ liệu từ vnstock
+    # Hai nguồn độc lập: lỗi một nguồn không ngăn thử nguồn còn lại.
+    warnings = []
     log.info(f"Bắt đầu thu thập dữ liệu cho mã {ticker} tính đến {as_of}...")
     try:
         fin_data = _fetch_vnstock_data(ticker)
     except Exception as exc:
-        msg = str(exc)
-        if any(w in msg.lower() for w in ["not found", "không tìm thấy", "invalid", "404"]):
-            err_desc = f"Mã '{ticker}' không tồn tại hoặc thuộc sàn UPCoM chưa được hỗ trợ."
-        elif any(w in msg.lower() for w in ["timeout", "connection", "mạng", "network"]):
-            err_desc = f"Lỗi kết nối mạng khi tải dữ liệu cho '{ticker}': {msg}"
-        else:
-            err_desc = f"Lỗi gọi API vnstock: {msg}"
-        return _persist({"ticker": ticker, "error": err_desc})
+        warnings.append(f"vnstock không khả dụng ({type(exc).__name__}); thử nguồn bổ sung.")
+        fin_data = {}
+
+    has_vnstock = any(isinstance(v, pd.DataFrame) and not v.empty for v in fin_data.values())
+    try:
+        supplemental = _fetch_vnfinancialdata_table(ticker)
+    except Exception as exc:
+        warnings.append(f"vnfinancialdata không khả dụng ({type(exc).__name__}); dùng vnstock nếu có.")
+        supplemental = {}
+    supplemental = {str(y): row for y, row in supplemental.items()
+                    if str(y).isdigit() and int(y) <= as_of_date.year}
+    if not supplemental:
+        warnings.append("vnfinancialdata không có dữ liệu phù hợp; dùng vnstock nếu có.")
+    if not has_vnstock:
+        warnings.append("vnstock không có dữ liệu; chỉ sử dụng nguồn bổ sung nếu có.")
+    fin_data, provenance = _merge_annual_frames(fin_data, supplemental, as_of_date)
 
     income_year = fin_data.get("income_year")
     balance_year = fin_data.get("balance_year")
@@ -1036,15 +1074,15 @@ def run(ticker: str, as_of: str) -> dict:
     events_df = fin_data.get("events")
 
     # Kiểm tra có dữ liệu trả về hay không
-    if not any(df is not None and not df.empty for df in [income_year, balance_year]):
+    if not provenance:
         return _persist({
             "ticker": ticker,
-            "error": f"Không tìm thấy dữ liệu báo cáo tài chính cho mã '{ticker}'. Mã có thể không tồn tại hoặc thuộc UPCoM."
+            "error": f"Không tìm thấy dữ liệu tài chính phù hợp từ cả hai nguồn cho '{ticker}'.",
+            "warnings": warnings,
         })
 
     # 3. Lấy danh sách các kỳ báo cáo hợp lệ <= as_of
-    ref_df = income_year if income_year is not None else balance_year
-    year_cols = _get_sorted_periods(ref_df, is_quarter=False, as_of_date=as_of_date)
+    year_cols = sorted(provenance, reverse=True)
     quarter_cols = _get_sorted_periods(income_quarter, is_quarter=True, as_of_date=as_of_date)
 
     if not year_cols:
@@ -1053,16 +1091,13 @@ def run(ticker: str, as_of: str) -> dict:
             "error": f"Không có kỳ báo cáo tài chính nào của '{ticker}' trước hoặc bằng ngày {as_of}."
         })
 
-    # 4. Thử nạp vnfinancialdata (nếu có cấu hình)
-    _fetch_vnfinancialdata(ticker)
-
-    sources = [
-        {"name": "vnstock (KBS)", "url": "https://vnstocks.com", "date": as_of}
-    ]
-    if HF_TOKEN:
+    sources = []
+    if has_vnstock:
+        sources.append({"name": "vnstock (KBS)", "url": "https://vnstocks.com", "date": as_of})
+    if any("vnfinancialdata" in fields.values() for fields in provenance.values()):
         sources.append({
             "name": "vnfinancialdata (Hugging Face)",
-            "url": "https://huggingface.co/datasets/datasets-for-good/vnfinancialdata",
+            "url": "https://huggingface.co/datasets/thanhnp-uel/vietnam-listed-companies-financial-statements",
             "date": as_of
         })
 
@@ -1071,7 +1106,7 @@ def run(ticker: str, as_of: str) -> dict:
     per_share_data = _compute_per_share(income_year, balance_year, ratio_year, events_df, year_cols, as_of_date, ttm_data.get("ttm_eps"))
     fin_table = _compute_financials_table(
         income_year, balance_year, ratio_year, year_cols,
-        ttm_data=ttm_data, per_share_data=per_share_data, ticker=ticker
+        ttm_data=ttm_data, per_share_data=per_share_data, ticker=ticker, vnf_data={}
     )
 
 
@@ -1092,6 +1127,8 @@ def run(ticker: str, as_of: str) -> dict:
         "sector": detected_sec,
         "valuation_ref": internal_reference(sec_ref, detected_sec),
         "financials_table": fin_table,
+        "field_sources": provenance,
+        "warnings": warnings,
         "unit": "VND",
         "basis": financial_basis({"financials_table": fin_table, "latest_period": year_cols[0]}),
         "growth": _compute_growth(income_year, income_quarter, ratio_year, year_cols, quarter_cols),

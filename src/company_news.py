@@ -27,6 +27,8 @@ import os
 from pathlib import Path
 import re
 import tempfile
+from time import perf_counter
+from analysis_cache import load_or_fetch
 from typing import Any, Callable, Iterable
 from urllib.parse import quote, urljoin, urlparse
 from zoneinfo import ZoneInfo
@@ -264,6 +266,7 @@ class CompanyNewsAnalyzer:
         self.enable_web_news = enable_web_news
         self.warnings: list[str] = []
         self._session: Any = None
+        self.web_stats: dict[str, Any] = {}
 
     @staticmethod
     def _validate_ticker(ticker: str) -> str:
@@ -301,6 +304,8 @@ class CompanyNewsAnalyzer:
             ) from exc
 
     def _request(self, url: str, *, timeout: int = 10) -> Any:
+        # Không để nguồn lỗi lặp lại nhiều lần trong một lượt bấm phân tích.
+        timeout = (2, min(timeout, 5))
         if self._http_get is not None:
             return self._http_get(url, headers=DEFAULT_HEADERS, timeout=timeout)
         if self._session is None:
@@ -311,7 +316,7 @@ class CompanyNewsAnalyzer:
             self._session = requests.Session()
             adapter = requests.adapters.HTTPAdapter(
                 max_retries=requests.adapters.Retry(
-                    total=2,
+                    total=0,
                     backoff_factor=0.4,
                     status_forcelist=(429, 500, 502, 503, 504),
                     allowed_methods=("GET",),
@@ -728,11 +733,12 @@ class CompanyNewsAnalyzer:
         except Exception:
             return None
 
-    def fetch_web_news(self, profile: dict[str, Any]) -> list[dict[str, Any]]:
+    def fetch_web_news(self, profile: dict[str, Any], existing_news=None) -> list[dict[str, Any]]:
         if not self.enable_web_news:
             return []
         company_name = str(profile.get("name") or self.ticker)
         query_text = f"{self.ticker} {company_name}"
+        started = perf_counter()
         candidates: list[tuple[str, str]] = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
             futures = [
@@ -742,21 +748,45 @@ class CompanyNewsAnalyzer:
             futures.append(
                 executor.submit(self._collect_official_links, profile.get("website"))
             )
-            for future in concurrent.futures.as_completed(futures):
-                candidates.extend(future.result())
+            # Xen kẽ các nguồn, tránh nguồn trả nhanh chiếm hết hạn mức bài.
+            groups = [future.result() for future in futures]
+            for index in range(max((len(group) for group in groups), default=0)):
+                candidates.extend(group[index] for group in groups if index < len(group))
 
-        unique_candidates = list(dict.fromkeys(candidates))[:24]
+        def url_key(url):
+            return str(url or "").split("#", 1)[0].rstrip("/")
+        seen = {url_key(item.get("url")) for item in (existing_news or [])}
+        unique_candidates = []
+        for url, source in candidates:
+            key = url_key(url)
+            if key and key not in seen:
+                seen.add(key)
+                unique_candidates.append((url, source))
+        unique_candidates = unique_candidates[:24]
+        self.web_stats = {"discovery_seconds": round(perf_counter() - started, 3),
+                          "candidate_count": len(unique_candidates), "article_cache_hits": 0}
+        article_started = perf_counter()
         brand_terms = self._brand_terms(self.ticker, company_name)
         articles: list[dict[str, Any]] = []
+        def fetch_article(url, source):
+            # Cache chỉ bài thành công, theo URL/mã/ngày để không trộn doanh nghiệp.
+            return load_or_fetch(
+                self.output_dir / ".news_article_cache", "article:" + url,
+                self.ticker, self.as_of.isoformat(), 3600,
+                lambda: self._extract_article(url, source, brand_terms),
+            )
         with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
             futures = [
-                executor.submit(self._extract_article, url, source, brand_terms)
+                executor.submit(fetch_article, url, source)
                 for url, source in unique_candidates
             ]
             for future in concurrent.futures.as_completed(futures):
-                item = future.result()
+                item, cached = future.result()
+                self.web_stats["article_cache_hits"] += int(cached)
                 if item:
                     articles.append(item)
+        self.web_stats["article_seconds"] = round(perf_counter() - article_started, 3)
+        self.web_stats["total_seconds"] = round(perf_counter() - started, 3)
         return articles
 
     @staticmethod
@@ -812,7 +842,7 @@ class CompanyNewsAnalyzer:
         frames = self.fetch_reference_data()
         profile = self.build_company_profile(frames)
         vnstock_news = self.normalize_vnstock_news(frames["news"])
-        web_news = self.fetch_web_news(profile)
+        web_news = self.fetch_web_news(profile, vnstock_news)
         news = self._sort_news(deduplicate_news(vnstock_news + web_news))[: self.max_news]
         events = self.normalize_events(frames["events"])
 
@@ -844,6 +874,7 @@ class CompanyNewsAnalyzer:
                 "url": METHODOLOGY_REFERENCE,
             },
             "warnings": self.warnings,
+            "web_fetch_stats": self.web_stats,
         }
         _atomic_json_dump(payload, self.json_path)
         return payload
